@@ -1,4 +1,7 @@
 module Slate
-  class PostsController < ActionController::Base
+  class PostsController < ApplicationController
+    def index
+
+    end
   end
 end
