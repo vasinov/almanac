@@ -1,8 +1,8 @@
 FactoryGirl.define do
   sequence(:title) {|n| "Fun Title #{n}" }
-  sequence(:username) {|n| "Some very long body #{n}" }
+  sequence(:body) {|n| "Some very long body #{n}" }
 
-  factory :post do
+  factory :post, :class => Slate::Post do
     title { FactoryGirl.generate(:title) }
     body { FactoryGirl.generate(:body) }
     published true
