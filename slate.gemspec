@@ -7,10 +7,10 @@ require "slate/version"
 Gem::Specification.new do |s|
   s.name        = "slate"
   s.version     = Slate::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Slate."
+  s.authors     = ["Vasily Vasinov"]
+  s.email       = ["vasinov@me.com"]
+  s.homepage    = "http://www.vasinov.com"
+  s.summary     = "The most elegant blog engine written in Rails."
   s.description = "TODO: Description of Slate."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
