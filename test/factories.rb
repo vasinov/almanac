@@ -10,4 +10,8 @@ FactoryGirl.define do
     factory :manager do
     end
   end
+
+  factory :blog, :class => Slate::Blog do
+    title { FactoryGirl.generate(:title) }
+  end
 end

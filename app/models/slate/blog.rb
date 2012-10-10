@@ -1,8 +1,7 @@
-class Slate::Post < ActiveRecord::Base
-  belongs_to :blog
+class Slate::Blog < ActiveRecord::Base
   belongs_to :author, :class_name => Slate.user_class
 
-  attr_accessible :title, :body, :published, :author_id
+  attr_accessible :title, :author_id
 
   #before_save :set_author
 
