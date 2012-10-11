@@ -1,5 +1,12 @@
 .well
-  - if @posts.nil?
-    No posts here
+  - if @blog.nil?
+    - current_user = "user"
+    -if defined? current_user
+      Create your first blog
+    - else
+      current_user is not defined. Configure Devise.
   - else
-  =@posts
+    - if @posts.nil?
+      No posts here
+    - else
+      =@posts

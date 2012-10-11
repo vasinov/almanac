@@ -3,15 +3,11 @@ module Slate
     respond_to :html
 
     def index
-      @posts = (defined? current_user) ? "posts" : nil
+      @blog = Slate::Blog.first
+      @posts = (defined? current_user or !@blog.nil?) ? Slate::Post.all : nil
 
       respond_with(@posts) do |format|
-        if @posts.nil?
-          flash.now[:alert] = 'current_user is not found. Check your Devise setup.'
-          format.html
-        else
-          format.html
-        end
+        format.html
       end
     end
   end
