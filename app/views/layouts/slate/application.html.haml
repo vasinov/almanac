@@ -15,4 +15,12 @@
               %a{:href => "#"} Home
 
     .container
+      - if alert
+        .alert.alert-error.alert-block
+          %a.close{"data-dismiss" => "alert"} ×
+          = alert
+      - if notice
+        .alert.alert-info.alert-block
+          %a.close{"data-dismiss" => "alert"} ×
+          = notice
       = yield
