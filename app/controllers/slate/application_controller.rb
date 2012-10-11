@@ -5,11 +5,7 @@ module Slate
     before_filter :set_current_author
 
     def set_current_author
-      if !current_user
-        @current_author = nil
-      else
-        @current_author = current_user
-      end
+      @current_author = (current_user.nil?) ? nil : current_user
     end
   end
 end

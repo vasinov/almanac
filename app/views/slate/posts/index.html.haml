@@ -8,7 +8,7 @@
     - else
       current_user is not defined. You have to be logged in with Devise in order to configure your first blog.
   - else
-    - if @posts.nil?
-      No posts here
+    - if @posts.empty?
+      = link_to "Create Your First Post", new_post_path, :class => "btn"
     - else
       =@posts
