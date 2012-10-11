@@ -22,4 +22,12 @@ Gem::Specification.new do |s|
   s.add_dependency "less"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "devise"
+  s.add_development_dependency "cancan"
+  s.add_development_dependency "haml-rails"
+  s.add_development_dependency "less-rails"
+  s.add_development_dependency "therubyracer"
+  s.add_development_dependency "coffee-rails"
+  s.add_development_dependency 'uglifier'
+  s.add_development_dependency 'factory_girl_rails'
 end
