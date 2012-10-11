@@ -1,7 +1,6 @@
 .well
   - if @blog.nil?
-    - current_user = "user"
-    -if defined? current_user
+    -if !@current_author.nil?
       Create your first blog
     - else
       current_user is not defined. Configure Devise.
