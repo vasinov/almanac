@@ -11,7 +11,7 @@ module Slate
       respond_with(@posts) do |format|
         if @blog.nil?
           if !@current_author.nil?
-            format.html { redirect_to new_blog_path }
+            format.html { redirect_to new_path }
           end
         else
           format.html
