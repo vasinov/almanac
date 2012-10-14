@@ -1,0 +1,18 @@
+= form_for @post, :html => {:class => "well"} do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h5
+        = pluralize(@post.errors.count, "error")
+        prohibited this post from being saved:
+      %ul
+        - @blog.errors.full_messages.each do |msg|
+          %li= msg
+  %h4 Post Details
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :body
+    = f.text_area :body
+  .actions
+    = f.submit :class => "btn btn-primary"

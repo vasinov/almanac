@@ -20,7 +20,11 @@ module Slate
     end
 
     def new
+      @post = Post.new
 
+      respond_with(@post) do |format|
+        format.html
+      end
     end
 
     def create

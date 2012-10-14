@@ -3,7 +3,7 @@
     #error_explanation
       %h5
         = pluralize(@blog.errors.count, "error")
-        prohibited this project from being saved:
+        prohibited this blog from being saved:
       %ul
         - @blog.errors.full_messages.each do |msg|
           %li= msg
