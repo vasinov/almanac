@@ -20,7 +20,7 @@ class PostTest < ActiveSupport::TestCase
   # body validations
   test "should not publish post without body" do
     @post.body = ""
-    assert !@post.save , "Published the post without a title"
+    assert !@post.save , "Published the post without a body"
   end
 
   test "should save post without body" do

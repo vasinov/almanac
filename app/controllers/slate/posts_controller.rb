@@ -28,7 +28,15 @@ module Slate
     end
 
     def create
+      @post = Post.new(params[:post])
 
+      respond_with(@post) do |format|
+        if @post.save
+          format.html { redirect_to posts_path, :notice => 'Post was successfully created.' }
+        else
+          format.html { render :action => "new", :alert => 'Something went wrong, try again.' }
+        end
+      end
     end
   end
 end
