@@ -2,6 +2,7 @@ require_dependency "slate/application_controller"
 
 module Slate
   class BlogsController < ApplicationController
+    load_and_authorize_resource class: Slate::Blog
     respond_to :html
 
     def new

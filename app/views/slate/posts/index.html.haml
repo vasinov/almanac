@@ -12,7 +12,6 @@
     .well
       = link_to "Create Your First Post", new_post_path, :class => "btn"
   - else
-    - @posts.each do |post|
-      .well
-        =post.title
-        =post.body
+    - @posts.each do |post| @post = post
+      - unless @post.nil?
+        = render "post"

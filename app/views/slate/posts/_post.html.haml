@@ -1,0 +1,13 @@
+.well
+  %h4
+    =@post.title
+  %div
+    =@post.body
+  - if can? :edit, @post
+    = link_to edit_post_path(@post), :class => "btn btn-mini margin-right" do
+      %i.icon-cog
+      Edit
+  - if can? :delete, @post
+    = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger btn-mini" do
+      %i.icon-trash.icon-white
+      Delete
