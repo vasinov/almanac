@@ -22,6 +22,7 @@ module Slate
     end
 
     def show
+      @blog = @post.blog
       respond_with(@post) do |format|
         format.html
       end
