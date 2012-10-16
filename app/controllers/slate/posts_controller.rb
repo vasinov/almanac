@@ -51,6 +51,7 @@ module Slate
     end
 
     def edit
+      @blog = @post.blog
       @post.body = MarkdownParser.html_to_markdown(@post.body)
       respond_to do |format|
         format.html
