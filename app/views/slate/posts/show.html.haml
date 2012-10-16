@@ -3,5 +3,5 @@
     = @post.blog.title
 - unless @post.nil?
   %h3.date
-    = @post.created_at
+    = @post.created_at.strftime("%B %d, %Y")
   = render "post"

@@ -2,7 +2,7 @@
   %h4
     = link_to @post.title, @post
   %div
-    =@post.body
+    =@post.body.html_safe
     %hr
   - if can? :edit, @post
     = link_to edit_post_path(@post), :class => "btn btn-mini margin-right" do

@@ -4,6 +4,7 @@ module Slate
   class PostsController < ApplicationController
     load_and_authorize_resource class: Slate::Post
     respond_to :html
+    before_filter :find_post, :only => [:show, :edit, :update, :delete]
 
     def index
       @blog = Slate::Blog.first
@@ -21,8 +22,6 @@ module Slate
     end
 
     def show
-      @post = Post.find(params[:id])
-
       respond_with(@post) do |format|
         format.html
       end
@@ -39,6 +38,7 @@ module Slate
     def create
       @post = Post.new(params[:post])
       @post.blog = Slate::Blog.first
+      @post.author_id = current_user.id
 
       respond_with(@post) do |format|
         if @post.save
@@ -50,15 +50,13 @@ module Slate
     end
 
     def edit
-      @post = Post.find(params[:id])
-
+      @post.body = MarkdownParser.html_to_markdown(@post.body)
       respond_to do |format|
         format.html
       end
     end
 
     def update
-      @post = Post.find(params[:id])
       @post.blog = Slate::Blog.first
 
       respond_with(@post) do |format|
@@ -72,7 +70,6 @@ module Slate
     end
 
     def destroy
-      @post = Post.find(params[:id])
       post_id = @post.id
       respond_to do |format|
         if @post.destroy
@@ -81,6 +78,11 @@ module Slate
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
       end
+    end
+
+    private
+    def find_post
+      @post = Post.find(params[:id])
     end
   end
 end
