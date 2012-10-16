@@ -1,5 +1,5 @@
 .page-header
   %h2
-    -#= @post.blog.title
-  - unless @post.nil?
-    = render "post"
+    = @post.blog.title
+- unless @post.nil?
+  = render "post"
