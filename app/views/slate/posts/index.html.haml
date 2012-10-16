@@ -12,12 +12,12 @@
     .well
       = link_to "Create Your First Post", new_post_path, :class => "btn"
   - else
-    - old_date = DateTime.now + 1.month
+    - old_date = DateTime.now + 1.day
     - @posts.each do |post|
       - @post = post
       - unless @post.nil?
         - unless old_date.day == @post.created_at.day
-          %h3
-            = @post.created_at
+          %h3.date
+            = @post.created_at.strftime("%B %d, %Y")
         = render "post"
         - old_date = @post.created_at
