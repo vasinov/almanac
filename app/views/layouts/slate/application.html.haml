@@ -6,14 +6,6 @@
     = javascript_include_tag "slate/application"
     = csrf_meta_tags
   %body
-    .navbar.navbar-static-top
-      .navbar-inner
-        .container
-          %a.brand{:href => "/"} Slate
-          %ul.nav
-            %li.active
-              %a{:href => "/"} Home
-
     .container
       - if alert
         .alert.alert-error.alert-block

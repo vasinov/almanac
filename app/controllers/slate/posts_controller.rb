@@ -7,7 +7,7 @@ module Slate
 
     def index
       @blog = Slate::Blog.first
-      @posts = (!@blog.nil?) ? Slate::Post.all : nil
+      @posts = (!@blog.nil?) ? Slate::Post.order("id DESC").all : nil
 
       respond_with(@posts) do |format|
         if @blog.nil?

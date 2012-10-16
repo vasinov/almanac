@@ -1,8 +1,9 @@
 .well
   %h4
-    =@post.title
+    = link_to @post.title, @post
   %div
     =@post.body
+    %hr
   - if can? :edit, @post
     = link_to edit_post_path(@post), :class => "btn btn-mini margin-right" do
       %i.icon-cog

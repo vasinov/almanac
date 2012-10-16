@@ -2,4 +2,6 @@
   %h2
     = @post.blog.title
 - unless @post.nil?
+  %h3
+    = @post.created_at
   = render "post"

@@ -5,4 +5,37 @@
 .well {
   margin: 0 auto 20px;
   max-width: 500px;
+  background: white;
+  padding: 25px;
+  font-family: "Georgia", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4A4A4A;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.page-header {
+  border: 0 none;
+}
+
+.page-header h2 {
+  display: block;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 24px;
+  -webkit-text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  -moz-text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  -o-text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  filter: progid:DXImageTransform.Microsoft.Shadow(direction=135,strength=2,color=424040);
+  position: relative;
+  color: white;
 }
