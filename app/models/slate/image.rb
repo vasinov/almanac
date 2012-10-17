@@ -1,4 +1,4 @@
-class File::Blog < ActiveRecord::Base
+class Slate::Image < ActiveRecord::Base
   belongs_to :post
 
   attr_accessible :image_uid, :thumb_uid, :post_id

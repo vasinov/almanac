@@ -11,6 +11,7 @@ PATH
       jquery-rails
       kramdown
       mini_magick
+      rack-cache
       rails (~> 3.2.8)
       sass-rails
       uglifier

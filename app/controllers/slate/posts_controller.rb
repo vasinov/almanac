@@ -36,6 +36,7 @@ module Slate
 
     def new
       @post = Post.new
+      @images = @post.images
 
       respond_with(@post) do |format|
         format.html
@@ -57,6 +58,8 @@ module Slate
     end
 
     def edit
+      @images = @post.images
+      @image = @post.images.new
       respond_to do |format|
         format.html
       end
