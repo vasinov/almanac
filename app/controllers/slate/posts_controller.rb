@@ -4,7 +4,12 @@ module Slate
   class PostsController < ApplicationController
     load_and_authorize_resource class: Slate::Post
     respond_to :html
-    before_filter :find_post, :only => [:show, :edit, :update, :delete]
+    before_filter :only => [:show, :edit, :update, :delete] do |controller|
+      @post = Post.find(params[:id])
+    end
+    before_filter :only => [:index, :show] do |controller|
+      @markdown_parser = MarkdownParser.new
+    end
 
     def index
       @blog = Slate::Blog.first
@@ -52,7 +57,6 @@ module Slate
 
     def edit
       @blog = @post.blog
-      @post.body = MarkdownParser.html_to_markdown(@post.body)
       respond_to do |format|
         format.html
       end
@@ -85,6 +89,11 @@ module Slate
     private
     def find_post
       @post = Post.find(params[:id])
+    end
+
+    private
+    def load_body
+
     end
   end
 end
