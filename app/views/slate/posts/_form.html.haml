@@ -7,12 +7,14 @@
       %ul
         - @blog.errors.full_messages.each do |msg|
           %li= msg
-  %h4 Post Details
   .field
-    = f.label :title
-    = f.text_field :title
+    = f.label :title, "Post Title"
+    = f.text_field :title, :placeholder => "Title is required."
   .field
-    = f.label :body
-    = f.text_area :body
+    = f.label :excerpt, "Excerpt"
+    = f.text_area :excerpt, :placeholder => "This is where you can put a summary of your post. You can use Markdown here. It's not required."
+  .field
+    = f.label :body, "Main Content"
+    = f.text_area :body, :placeholder => "This is where your post goes. You can use markdown here."
   .actions
     = f.submit :class => "btn btn-primary"

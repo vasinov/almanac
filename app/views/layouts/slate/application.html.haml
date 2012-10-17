@@ -7,6 +7,9 @@
     = csrf_meta_tags
   %body.slate
     .container
+      .page-header
+        %h2
+          = (@blog.nil?) ? "Your Blog Doesn't Exist Yet" : link_to(@blog.title, :root)
       - if alert
         .alert.alert-error.alert-block
           %a.close{"data-dismiss" => "alert"} ×
@@ -15,7 +18,4 @@
         .alert.alert-info.alert-block
           %a.close{"data-dismiss" => "alert"} ×
           = notice
-      .page-header
-        %h2
-          = (@blog.nil?) ? "Your Blog Doesn't Exist Yet" : link_to(@blog.title, @blog)
       = yield
