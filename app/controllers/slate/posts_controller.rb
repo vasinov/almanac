@@ -10,9 +10,11 @@ module Slate
     before_filter :only => [:index, :show] do |controller|
       @markdown_parser = MarkdownParser.new
     end
+    before_filter :only => [:index, :show, :edit, :new] do |controller|
+      @blog = Slate::Blog.first
+    end
 
     def index
-      @blog = Slate::Blog.first
       @posts = (!@blog.nil?) ? Slate::Post.order("id DESC").all : nil
 
       respond_with(@posts) do |format|
@@ -27,7 +29,6 @@ module Slate
     end
 
     def show
-      @blog = @post.blog
       respond_with(@post) do |format|
         format.html
       end
@@ -48,7 +49,7 @@ module Slate
 
       respond_with(@post) do |format|
         if @post.save
-          format.html { redirect_to posts_path, :notice => 'Post was successfully created.' }
+          format.html { redirect_to :root, :notice => 'Post was successfully created.' }
         else
           format.html { render :action => "new", :alert => 'Something went wrong, try again.' }
         end
@@ -56,7 +57,6 @@ module Slate
     end
 
     def edit
-      @blog = @post.blog
       respond_to do |format|
         format.html
       end
@@ -79,21 +79,11 @@ module Slate
       post_id = @post.id
       respond_to do |format|
         if @post.destroy
-          format.html { redirect_to posts_path, :notice => 'Post was successfully deleted.' }
+          format.html { redirect_to :root, :notice => 'Post was successfully deleted.' }
         else
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
       end
-    end
-
-    private
-    def find_post
-      @post = Post.find(params[:id])
-    end
-
-    private
-    def load_body
-
     end
   end
 end
