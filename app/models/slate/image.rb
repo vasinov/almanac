@@ -1,10 +1,10 @@
 class Slate::Image < ActiveRecord::Base
   belongs_to :post
 
-  attr_accessible :image_uid, :thumb_uid, :post_id
+  attr_accessible :image, :thumb, :post_id
 
   image_accessor :image do
-    copy_to(:thumb){|a| a.thumb('312x355#') }
+    copy_to(:thumb){|a| a.thumb('100x100#') }
   end
   image_accessor :thumb
 end

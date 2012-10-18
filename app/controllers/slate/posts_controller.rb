@@ -58,8 +58,6 @@ module Slate
     end
 
     def edit
-      @images = @post.images
-      @image = @post.images.new
       respond_to do |format|
         format.html
       end

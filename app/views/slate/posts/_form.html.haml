@@ -1,9 +1,9 @@
 %div.well
   Files
-  - @images.each do |image|
+  - @post.images.each do |image|
     -if image.id
-      = image.post_id
-  = form_for @image, :html => {:multipart => true} do |f|
+      = image_tag image.thumb.url
+  = form_for([@post, @post.images.build], :html => {:multipart => true}) do |f|
     = f.file_field :image
     .actions
       = f.submit :class => "btn btn-primary"
