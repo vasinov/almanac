@@ -1,12 +1,13 @@
-%div.well
-  Files
-  - @post.images.each do |image|
-    -if image.id
-      = image_tag image.thumb.url
-  = form_for([@post, @post.images.build], :html => {:multipart => true}) do |f|
-    = f.file_field :image
-    .actions
-      = f.submit :class => "btn btn-primary"
+.well
+  .well
+    - unless @post.images.empty?
+      .images
+        - @post.images.each do |image|
+          -if image.id
+            = image_tag image.thumb.url
+    = form_for([@post, @post.images.build], :html => {:multipart => true}) do |f|
+      = f.file_field :image
+      = f.submit :class => "btn btn-small", :value => "Upload Image"
   = form_for @post do |f|
     - if @post.errors.any?
       #error_explanation
@@ -25,5 +26,8 @@
     .field
       = f.label :body, "Main Content"
       = f.text_area :body, :placeholder => "This is where your post goes. You can use markdown here."
+    %label.checkbox
+      = f.check_box :published
+      = f.label :published, "Publish"
     .actions
       = f.submit :class => "btn btn-primary"
