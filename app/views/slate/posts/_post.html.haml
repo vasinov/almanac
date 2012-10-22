@@ -4,9 +4,10 @@
   %div
     = @markdown_parser.markdown_to_html(@post.body).html_safe
     %hr
-  - if can? :edit, @post
-    = link_to edit_post_path(@post), :class => "" do
-      %i.icon-cog
-  - if can? :delete, @post
-    = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "" do
-      %i.icon-trash.icon
+  .actions
+    - if can? :edit, @post
+      = link_to edit_post_path(@post), :class => "" do
+        %i.icon-cog
+    - if can? :delete, @post
+      = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+        %i.icon-trash.icon

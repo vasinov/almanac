@@ -1,2 +1,6 @@
 $(document).ready ->
   $.backstretch "<%= asset_path('slate/background.jpg') %>"
+
+  $(".custom-upload input[type=file]").change ->
+    $(this).next().find("input").val $(this).val()
+    $("#new_image input[type=submit]").show()
