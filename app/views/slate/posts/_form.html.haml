@@ -1,13 +1,14 @@
 .well
-  .well
-    - unless @post.images.empty?
-      .images
-        - @post.images.each do |image|
-          -if image.id
-            = image_tag image.thumb.url
-    = form_for([@post, @post.images.build], :html => {:multipart => true}) do |f|
-      = f.file_field :image
-      = f.submit :class => "btn btn-small", :value => "Upload Image"
+  - if @post.id
+    .well
+      - unless @post.images.empty?
+        .images
+          - @post.images.each do |image|
+            -if image.id
+              = image_tag image.thumb.url
+      = form_for([@post, @post.images.build], :html => {:multipart => true}) do |f|
+        = f.file_field :image
+        = f.submit :class => "btn btn-small", :value => "Upload Image"
   = form_for @post do |f|
     - if @post.errors.any?
       #error_explanation

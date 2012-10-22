@@ -5,7 +5,7 @@ class Slate::Post < ActiveRecord::Base
 
   attr_accessible :title, :body, :published, :excerpt, :author_id
 
-  before_save :set_author
+  before_save :author=
 
   def self.recent(params)
     self.where(:published => true).order('id DESC').page(posts_page(params)).per(posts_limit(params))
@@ -23,8 +23,7 @@ class Slate::Post < ActiveRecord::Base
     (params[:page].blank?) ? 1 : params[:page]
   end
 
-  private
-  def set_author
-    self.author = Slate.user_class.constantize.find(self.author_id)
+  def author=
+    @author = Slate.user_class.constantize.find(self.author_id)
   end
 end
