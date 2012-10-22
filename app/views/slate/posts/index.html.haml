@@ -9,6 +9,13 @@
     .well
       = link_to "Create Your First Post", new_post_path, :class => "btn"
   - else
+    - unless @drafts.empty?
+      %h3.date Your #{pluralize(@drafts.count, "draft")}:
+      - @drafts.each do |draft|
+        - @post = draft
+        - unless @post.nil?
+          = render "post"
+      %hr
     - old_date = DateTime.now + 1.day
     - @posts.each do |post|
       - @post = post

@@ -15,7 +15,8 @@ module Slate
     end
 
     def index
-      @posts = (!@blog.nil?) ? Slate::Post.order("id DESC").all : nil
+      @posts = (@blog.nil?) ? [] : Post.recent(params)
+      @drafts = (@blog.nil? or @current_author.nil?) ? [] : Post.drafts(params)
 
       respond_with(@posts) do |format|
         if @blog.nil?

@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rack-cache"
   s.add_dependency "dragonfly"
   s.add_dependency "mini_magick"
+  s.add_dependency "kaminari"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "factory_girl_rails"
