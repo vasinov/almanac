@@ -5,7 +5,7 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
 .slate {
   [class^="icon-"],
   [class*=" icon-"] {
-    background-image: url("glyphicons-halflings.png");
+    background-image: url("icons/glyphicons-halflings.png");
   }
 
   .icon-white,
@@ -21,7 +21,7 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
   .dropdown-menu > li > a:hover > [class*=" icon-"],
   .dropdown-menu > .active > a > [class^="icon-"],
   .dropdown-menu > .active > a > [class*=" icon-"] {
-    background-image: url("glyphicons-halflings-white.png");
+    background-image: url("icons/glyphicons-halflings-white.png");
   }
 
   .navbar {
@@ -72,7 +72,7 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
   .page-header {
     border: 0 none;
 
-    h2, h2 a {
+    h2, h2 a.title {
       display: block;
       text-align: center;
       font-family: $font-family-title;
@@ -134,7 +134,7 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
       height: 100%;
     }
     .fake-file {
-      background:url("upload-icon.png") center right no-repeat;
+      background:url("icons/upload.png") center right no-repeat;
       position: absolute;
       top: 0px;
       left: 0px;
