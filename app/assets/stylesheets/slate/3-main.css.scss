@@ -134,7 +134,7 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
       height: 100%;
     }
     .fake-file {
-      background:url(http://www.fold3.com/i/upload-icon.png) center right no-repeat;
+      background:url("upload-icon.png") center right no-repeat;
       position: absolute;
       top: 0px;
       left: 0px;
@@ -152,6 +152,7 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
         height: 30px;
         padding: 5px;
         width: 290px;
+        cursor: default;
       }
     }
   }
