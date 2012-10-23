@@ -4,7 +4,8 @@ require "cancan"
 require "haml"
 require "jquery-rails"
 require "kramdown"
-require "kaminari"
+require "will_paginate"
+require "will_paginate-bootstrap"
 require "slate/MarkdownParser"
 
 module Slate

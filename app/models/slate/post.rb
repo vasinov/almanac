@@ -7,8 +7,10 @@ class Slate::Post < ActiveRecord::Base
 
   before_save :author=
 
+  self.per_page = 10
+
   def self.recent(params)
-    self.where(:published => true).order('id DESC').page(posts_page(params)).per(posts_limit(params))
+    self.where(:published => true).order('id DESC').paginate(:page => posts_page(params), :per_page => posts_limit(params))
   end
 
   def self.drafts(params)

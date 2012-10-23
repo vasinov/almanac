@@ -25,3 +25,4 @@
             = @post.created_at.strftime("%B %d, %Y")
         = render "post"
         - old_date = @post.created_at
+    = will_paginate(@posts, :renderer => BootstrapPagination::Rails)

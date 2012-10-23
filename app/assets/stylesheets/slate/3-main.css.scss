@@ -160,4 +160,12 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
   #new_image input[type=submit] {
     display: none;
   }
+
+  .pagination {
+    text-align: center;
+
+    ul {
+      background-color: white;
+    }
+  }
 }
