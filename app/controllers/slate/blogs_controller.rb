@@ -33,5 +33,22 @@ module Slate
         end
       end
     end
+
+    def edit
+      respond_to do |format|
+        format.html
+      end
+    end
+
+    def update
+      respond_with(@blog) do |format|
+        if @post.update_attributes(params[:post])
+
+          format.html { redirect_to :root, :notice => 'Blog was successfully updated.' }
+        else
+          format.html { render :action => "edit" }
+        end
+      end
+    end
   end
 end

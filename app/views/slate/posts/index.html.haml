@@ -10,7 +10,7 @@
       = link_to "Create Your First Post", new_post_path, :class => "btn"
   - else
     - unless @drafts.empty?
-      %h3.date Your #{pluralize(@drafts.count, "draft")}:
+      %h3.head Your #{pluralize(@drafts.count, "draft")}:
       - @drafts.each do |draft|
         - @post = draft
         - unless @post.nil?
@@ -21,7 +21,7 @@
       - @post = post
       - unless @post.nil?
         - unless old_date.day == @post.created_at.day
-          %h3.date
+          %h3.head
             = @post.created_at.strftime("%B %d, %Y")
         = render "post"
         - old_date = @post.created_at
