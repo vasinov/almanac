@@ -85,9 +85,16 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
       position: relative;
       color: white;
     }
-    h2 a.title { display: inline; }
-    h2 #blog-settings-link {
-      //display: none;
+    h2 a.title {
+      display: inline;
+
+      img {
+        width: 100px;
+        height: 100px;
+        border: 3px solid white;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+        margin-right: 10px;
+      }
     }
   }
 
@@ -189,5 +196,24 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
     background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.65), rgba(0,0,0,0));
     background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.65), rgba(0,0,0,0));
     background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.65), rgba(0,0,0,0));
+  }
+
+  // Flaired edges, by Tomas Theunissen
+  hr.fancy {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+  }
+  hr.fancy:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
   }
 }

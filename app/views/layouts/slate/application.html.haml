@@ -9,9 +9,14 @@
     .container
       .page-header#header
         %h2
-          = (@blog.nil?) ? "Your Blog Doesn't Exist Yet" : link_to(@blog.title, :root, :class => "title")
-          = (@blog.nil? or cannot? :manage, Slate::Blog) ? "Your Blog Doesn't Exist Yet" : link_to(edit_blog_path(@blog), :id => "blog-settings-link") do
-            %img{ :src => asset_path('slate/icons/gear.png') }
+          - if @blog.nil?
+            = "Your Blog Doesn't Exist Yet"
+          - else
+            = link_to(:root, :class => "title") do
+              %img.img-circle{ :src => asset_path('slate/background.jpg') }
+              = @blog.title
+            = link_to(edit_blog_path(@blog)) do
+              %img{ :src => asset_path('slate/icons/gear.png') }
       - if alert
         .alert.alert-error.alert-block
           %a.close{"data-dismiss" => "alert"} ×
