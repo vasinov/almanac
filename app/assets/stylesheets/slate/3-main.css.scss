@@ -85,6 +85,10 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
       position: relative;
       color: white;
     }
+    h2 a.title { display: inline; }
+    h2 #blog-settings-link {
+      //display: none;
+    }
   }
 
   h3.head {
@@ -167,5 +171,23 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
     ul {
       background-color: white;
     }
+  }
+
+  hr.gradient-white {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+    background-image:    -moz-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+    background-image:     -ms-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+    background-image:      -o-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+  }
+
+  hr.gradient-black {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.65), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.65), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.65), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.65), rgba(0,0,0,0));
   }
 }

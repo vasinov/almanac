@@ -4,3 +4,8 @@ $(document).ready ->
   $(".custom-upload input[type=file]").change ->
     $(this).next().find("input").val $(this).val()
     $("#new_image input[type=submit]").show()
+
+  $("#header").hover (->
+     $("#blog-settings-link").show()
+  ), ->
+    $("#blog-settings-link").hide()

@@ -3,7 +3,7 @@
     = link_to @post.title, @post
   %div
     = @markdown_parser.markdown_to_html(@post.body).html_safe
-    %hr
+    %hr.gradient-black
   .actions
     - if can? :edit, @post
       = link_to edit_post_path(@post), :class => "" do

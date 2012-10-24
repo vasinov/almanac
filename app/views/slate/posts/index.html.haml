@@ -15,7 +15,7 @@
         - @post = draft
         - unless @post.nil?
           = render "post"
-      %hr
+      %hr.gradient-white
     - old_date = DateTime.now + 1.day
     - @posts.each do |post|
       - @post = post
