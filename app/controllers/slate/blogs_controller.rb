@@ -5,6 +5,10 @@ module Slate
     load_and_authorize_resource class: Slate::Blog
     respond_to :html
 
+    before_filter :only => [:show, :edit, :update, :delete] do |controller|
+      @blog = Blog.find(params[:id])
+    end
+
     def new
       @blog = (!Blog.first.nil?) ? Blog.first : Blog.new
 
@@ -42,7 +46,7 @@ module Slate
 
     def update
       respond_with(@blog) do |format|
-        if @post.update_attributes(params[:post])
+        if @blog.update_attributes(params[:blog])
 
           format.html { redirect_to :root, :notice => 'Blog was successfully updated.' }
         else
