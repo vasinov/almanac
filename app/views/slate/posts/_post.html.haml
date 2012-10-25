@@ -1,8 +1,9 @@
 .well
   %h4
-    = link_to @post.title, @post
+    = link_to (@post.title) ? @post.title : "No Title", @post
   %div
-    = @markdown_parser.markdown_to_html(@post.body).html_safe
+    - if @post.body
+      = @markdown_parser.markdown_to_html(@post.body).html_safe
     %hr.gradient-black
   .actions
     - if can? :edit, @post

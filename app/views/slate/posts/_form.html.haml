@@ -1,18 +1,17 @@
 .well
-  - if @post.id
-    .well
-      - unless @post.images.empty?
-        .images
-          - @post.images.each do |image|
-            - if image.id
-              - unless image.thumb.nil?
-                = image_tag image.thumb.url
-      = form_for([@post, @post.images.build], :html => { :multipart => true }) do |f|
-        .custom-upload
-          %input{:name => "image[image]", :type => "file"}
-          .fake-file
-            %input{:disabled => "disabled"}
-        = f.submit :class => "btn btn-small", :value => "Upload Image"
+  .well
+    - unless @post.images.empty?
+      .images
+        - @post.images.each do |image|
+          - if image.id
+            - unless image.thumb.nil?
+              = image_tag image.thumb.url
+    = form_for([@post, @post.images.build], :html => { :multipart => true }) do |f|
+      .custom-upload
+        %input{:name => "image[image]", :type => "file"}
+        .fake-file
+          %input{:disabled => "disabled"}
+      = f.submit :class => "btn btn-small", :value => "Upload Image"
   = form_for @post do |f|
     - if @post.errors.any?
       #error_explanation

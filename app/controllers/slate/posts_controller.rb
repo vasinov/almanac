@@ -37,6 +37,7 @@ module Slate
 
     def new
       @post = Post.new
+      @post.id = 0
       @images = @post.images
 
       respond_with(@post) do |format|
@@ -70,7 +71,7 @@ module Slate
       respond_with(@post) do |format|
         if @post.update_attributes(params[:post])
 
-          format.html { redirect_to post_path(@post), :notice => 'Post was successfully updated.' }
+          format.html { redirect_to :root, :notice => 'Post was successfully updated.' }
         else
           format.html { render :action => "edit" }
         end
