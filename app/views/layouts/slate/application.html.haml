@@ -13,7 +13,7 @@
             = "Your Blog Doesn't Exist Yet"
           - else
             = link_to(:root, :class => "logo") do
-              %img.img-circle{ :src => asset_path('slate/background.jpg') }
+              %img.img-circle{ :src => (@blog.logo) ? @blog.logo.url : asset_path('slate/background.jpg') }
             = link_to(:root, :class => "title") do
               = @blog.title
           - unless @blog.nil?

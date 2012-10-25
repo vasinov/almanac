@@ -1,4 +1,6 @@
-= form_for @blog, :html => {:class => "well"} do |f|
+= form_for @blog, :html => {:class => "well", :multipart => true} do |f|
+  = f.hidden_field :retained_logo
+  = f.hidden_field :retained_background
   - if @blog.errors.any?
     #error_explanation
       %h5
@@ -11,5 +13,13 @@
   .field
     = f.label :title
     = f.text_field :title
+  .field
+    = f.label :logo
+    = f.file_field :logo
+    = image_tag @blog.logo.thumb('400x200#').url
+
+  .field
+    = f.label :background
+    = f.file_field :background
   .actions
     = f.submit :class => "btn btn-primary"

@@ -1,5 +1,5 @@
 class AddExcerptToSlatePosts < ActiveRecord::Migration
-def up
+  def up
     change_table :slate_posts do |t|
       t.text :excerpt
     end
