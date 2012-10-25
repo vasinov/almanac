@@ -12,11 +12,14 @@
           - if @blog.nil?
             = "Your Blog Doesn't Exist Yet"
           - else
-            = link_to(:root, :class => "title") do
+            = link_to(:root, :class => "logo") do
               %img.img-circle{ :src => asset_path('slate/background.jpg') }
+            = link_to(:root, :class => "title") do
               = @blog.title
-            = link_to(edit_blog_path(@blog)) do
-              %img{ :src => asset_path('slate/icons/gear.png') }
+          - unless @blog.nil? or cannot? :manage, @blog
+            #top-controls
+              = link_to(edit_blog_path(@blog)) do
+                %img{ :src => asset_path('slate/icons/gear.png') }
       - if alert
         .alert.alert-error.alert-block
           %a.close{"data-dismiss" => "alert"} ×

@@ -69,8 +69,9 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
     }
   }
 
-  .page-header {
+  #header {
     border: 0 none;
+    position: relative;
 
     h2, h2 a.title {
       display: block;
@@ -86,15 +87,23 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
       color: white;
     }
     h2 a.title {
-      display: inline;
-
+      //font-family: "Helvetica Neue";
+    }
+    h2 a.logo {
       img {
         width: 100px;
         height: 100px;
         border: 3px solid white;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
         margin-right: 10px;
+        margin-bottom: 10px;
       }
+    }
+
+    #top-controls {
+      position: absolute;
+      right: 0;
+      top: 0;
     }
   }
 
