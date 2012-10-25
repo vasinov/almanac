@@ -16,10 +16,15 @@
               %img.img-circle{ :src => asset_path('slate/background.jpg') }
             = link_to(:root, :class => "title") do
               = @blog.title
-          - unless @blog.nil? or cannot? :manage, @blog
+          - unless @blog.nil?
             #top-controls
-              = link_to(edit_blog_path(@blog)) do
-                %img{ :src => asset_path('slate/icons/gear.png') }
+              - unless cannot? :create, Slate::Post
+                = link_to(new_post_path) do
+                  %img{ :src => asset_path('slate/icons/compose.png') }
+              - unless cannot? :manage, @blog
+                = link_to(edit_blog_path(@blog)) do
+                  %img{ :src => asset_path('slate/icons/gear.png') }
+
       - if alert
         .alert.alert-error.alert-block
           %a.close{"data-dismiss" => "alert"} ×
