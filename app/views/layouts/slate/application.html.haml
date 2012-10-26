@@ -2,10 +2,11 @@
 %html
   %head
     %title Slate
+    = include_gon
     = stylesheet_link_tag    "slate/application", :media => "all"
     = javascript_include_tag "slate/application"
     = csrf_meta_tags
-  %body.slate
+  %body.slate{"data-background" => (@blog.background) ? @blog.background.url : nil}
     .container
       .page-header#header
         %h2

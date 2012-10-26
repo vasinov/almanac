@@ -3,9 +3,14 @@ module Slate
     protect_from_forgery
 
     before_filter :set_current_author
+    before_filter :set_blog
 
     def set_current_author
       @current_author = (current_user.nil?) ? nil : current_user
+    end
+
+    def set_blog
+      @blog = Slate::Blog.first
     end
   end
 end

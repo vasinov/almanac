@@ -10,9 +10,6 @@ module Slate
     before_filter :only => [:index, :show] do |controller|
       @markdown_parser = MarkdownParser.new
     end
-    before_filter :only => [:index, :show, :edit, :new] do |controller|
-      @blog = Slate::Blog.first
-    end
 
     def index
       @posts = (@blog.nil?) ? [] : Post.recent(params)

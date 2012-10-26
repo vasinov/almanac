@@ -1,11 +1,12 @@
 $(document).ready ->
-  $.backstretch "<%= asset_path('slate/background.jpg') %>"
+  background = $("body").data("background")
+  $.backstretch if background? then background else "<%= asset_path('slate/background.jpg') %>"
 
   $(".custom-upload input[type=file]").change ->
     $(this).next().find("input").val $(this).val()
-    $("#new_image input[type=submit]").show()
+$("#new_image input[type=submit]").show()
 
-  $("#header").hover (->
-     $("#blog-settings-link").show()
-  ), ->
-    $("#blog-settings-link").hide()
+$("#header").hover (->
+  $("#blog-settings-link").show()
+), ->
+  $("#blog-settings-link").hide()
