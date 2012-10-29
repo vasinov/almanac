@@ -72,10 +72,10 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
   #header {
     border: 0 none;
     position: relative;
+    text-align: center;
 
     h2, h2 a.title {
       display: block;
-      text-align: center;
       font-family: $font-family-title;
       font-size: 35px;
       -webkit-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
@@ -103,6 +103,10 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
       position: absolute;
       right: 0;
       top: 0;
+
+      img {
+        margin-left: 10px;
+      }
 
       a:hover {
         text-decoration: none;

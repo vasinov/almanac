@@ -17,17 +17,21 @@
               %img.img-circle{ :src => (@blog.logo) ? @blog.logo.url : asset_path('slate/background.jpg') }
             = link_to(:root, :class => "title") do
               = @blog.title
-          - unless @blog.nil?
-            #top-controls
-              - unless cannot? :create, Slate::Post
-                = link_to(new_post_path) do
-                  %img{ :src => asset_path('slate/icons/compose.png') }
-              - unless cannot? :manage, @blog
-                = link_to(edit_blog_path(@blog)) do
-                  %img{ :src => asset_path('slate/icons/gear.png') }
-              = link_to("#{root_path}posts.rss") do
-                %img{ :src => asset_path('slate/icons/feed.png') }
-
+        - unless @blog.nil?
+          #top-controls
+            - unless cannot? :create, Slate::Post
+              = link_to(new_post_path) do
+                %img{ :src => asset_path('slate/icons/compose.png') }
+            - unless cannot? :manage, @blog
+              = link_to(edit_blog_path(@blog)) do
+                %img{ :src => asset_path('slate/icons/gear.png') }
+            = link_to("#{root_path}posts.rss") do
+              %img{ :src => asset_path('slate/icons/feed.png') }
+          - unless @blog.twitter.empty?
+            %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/vasinov"}
+              = "Follow @#{@blog.twitter}"
+            :javascript
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
       - if alert
         .alert.alert-error.alert-block
           %a.close{"data-dismiss" => "alert"} ×
