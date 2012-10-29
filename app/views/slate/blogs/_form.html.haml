@@ -29,10 +29,10 @@
   %h4 Under the Hood
   .field
     = f.label :twitter, "Your Twitter Handle"
-    = f.text_field :twitter
+    = f.text_field :twitter, :placeholder => "e.g. vasinov"
   .field
     = f.label :google_analytics, "Google Analytics ID"
-    = f.text_field :google_analytics
+    = f.text_field :google_analytics, :placeholder => "e.g. UA-00000000-1"
 
   .actions
     = f.submit :class => "btn btn-primary"
