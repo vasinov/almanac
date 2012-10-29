@@ -4,7 +4,7 @@ $(document).ready ->
   options = { amount: 0.7 }
 
   image.onload = ->
-    Pixastic.process image, "blurfast", options
+    Pixastic.process (Pixastic.process image, "blurfast", options), "blur", options
     $.backstretch options.resultCanvas.toDataURL('image/jpeg')
 
   image.src = if background? then background else "<%= asset_path('slate/background.jpg') %>"
@@ -12,8 +12,3 @@ $(document).ready ->
   $(".custom-upload input[type=file]").change ->
     $(this).next().find("input").val $(this).val()
 $("#new_image input[type=submit]").show()
-
-$("#header").hover (->
-  $("#blog-settings-link").show()
-), ->
-  $("#blog-settings-link").hide()
