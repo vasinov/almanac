@@ -3,8 +3,12 @@ class Slate::Blog < ActiveRecord::Base
 
   attr_accessible :title, :author_id, :logo, :background, :retained_logo, :retained_background
 
-  image_accessor :logo
-  image_accessor :background
+  image_accessor :logo do
+    after_assign{|a| a.process!(:thumb, '200x200#') }
+  end
+  image_accessor :background do
+    after_assign{|a| a.process!(:thumb, '1200x>') }
+  end
   #before_save :set_author
 
   private

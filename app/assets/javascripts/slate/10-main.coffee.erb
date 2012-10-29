@@ -1,7 +1,7 @@
 $(document).ready ->
   background = $("body").data("background")
   image = new Image()
-  options = { amount: 0.7 }
+  options = { amount: 0.9 }
 
   image.onload = ->
     Pixastic.process (Pixastic.process image, "blurfast", options), "blur", options
