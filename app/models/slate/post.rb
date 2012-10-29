@@ -7,6 +7,8 @@ class Slate::Post < ActiveRecord::Base
 
   before_save :author=
 
+  acts_as_taggable
+
   self.per_page = 10
 
   def self.recent(params)
