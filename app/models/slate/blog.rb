@@ -5,10 +5,10 @@ class Slate::Blog < ActiveRecord::Base
                   :google_analytics, :twitter
 
   image_accessor :logo do
-    after_assign{|a| a.process!(:thumb, '200x200#') }
+    after_assign{|a| a.process!(:thumb, '200x200#').encode(:png) }
   end
   image_accessor :background do
-    after_assign{|a| a.process!(:thumb, '1200x>') }
+    after_assign{|a| a.process!(:thumb, '1200x>').encode(:png) }
   end
   #before_save :set_author
 
