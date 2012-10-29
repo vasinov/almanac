@@ -1,7 +1,8 @@
 class Slate::Blog < ActiveRecord::Base
   belongs_to :author, :class_name => Slate.user_class
 
-  attr_accessible :title, :author_id, :logo, :background, :retained_logo, :retained_background
+  attr_accessible :title, :description, :author_id, :logo, :background, :retained_logo, :retained_background,
+                  :google_analytics, :twitter
 
   image_accessor :logo do
     after_assign{|a| a.process!(:thumb, '200x200#') }

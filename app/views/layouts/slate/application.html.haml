@@ -2,7 +2,7 @@
 %html
   %head
     %title Slate
-    = include_gon
+    = auto_discovery_link_tag(:rss, "#{root_path}posts.rss")
     = stylesheet_link_tag    "slate/application", :media => "all"
     = javascript_include_tag "slate/application"
     = csrf_meta_tags
@@ -25,6 +25,8 @@
               - unless cannot? :manage, @blog
                 = link_to(edit_blog_path(@blog)) do
                   %img{ :src => asset_path('slate/icons/gear.png') }
+              = link_to("#{root_path}posts.rss") do
+                %img{ :src => asset_path('slate/icons/feed.png') }
 
       - if alert
         .alert.alert-error.alert-block

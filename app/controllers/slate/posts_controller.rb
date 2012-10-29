@@ -22,6 +22,7 @@ module Slate
           end
         else
           format.html
+          format.rss { render :layout => false }
         end
       end
     end
