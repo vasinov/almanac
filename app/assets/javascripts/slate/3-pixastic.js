@@ -581,7 +581,7 @@ Pixastic.Actions.blurfast = {
             ctx.rect(rect.left, rect.top, rect.width, rect.height);
             ctx.clip();
 
-            var scale = 2;
+            var scale = 1;
             var smallWidth = Math.round(params.width / scale);
             var smallHeight = Math.round(params.height / scale);
 
@@ -590,7 +590,7 @@ Pixastic.Actions.blurfast = {
             copy.height = smallHeight;
 
             var clear = false;
-            var steps = Math.round(amount * 20);
+            var steps = Math.round(amount * 60);
 
             var copyCtx = copy.getContext("2d");
             for (var i=0;i<steps;i++) {
