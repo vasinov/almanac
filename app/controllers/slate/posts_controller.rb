@@ -7,13 +7,29 @@ module Slate
     before_filter :only => [:show, :edit, :update, :delete] do |controller|
       @post = Post.find(params[:id])
     end
-    before_filter :only => [:index, :show] do |controller|
+    before_filter :only => [:index, :show, :tag] do |controller|
       @markdown_parser = MarkdownParser.new
     end
 
     def index
       @posts = (@blog.nil?) ? [] : Post.recent(params)
       @drafts = (@blog.nil? or @current_author.nil?) ? [] : Post.drafts(params)
+
+      respond_with(@posts) do |format|
+        if @blog.nil?
+          unless @current_author.nil?
+            format.html { redirect_to new_path }
+          end
+        else
+          format.html
+          format.rss { render :layout => false }
+        end
+      end
+    end
+
+    def tag
+      @posts = (@blog.nil?) ? [] : Post.tagged(params)
+      @tag = params[:tag_name]
 
       respond_with(@posts) do |format|
         if @blog.nil?

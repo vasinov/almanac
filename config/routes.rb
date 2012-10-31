@@ -5,4 +5,5 @@ Slate::Engine.routes.draw do
   resources :posts do
     resources :images
   end
+  get 'tag/:tag_name', :to => "posts#tag", :as => "tag"
 end

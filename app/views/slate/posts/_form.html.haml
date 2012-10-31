@@ -30,6 +30,9 @@
     .field
       = f.label :body, "Main Content"
       = f.text_area :body, :placeholder => "This is where your post goes. You can use markdown here."
+    .field
+      = f.label :tag_list, "Tags"
+      = f.text_field :tag_list, :placeholder => "Comma-separated tags."
     %label.checkbox
       = f.check_box :published
       = f.label :published, "Publish"

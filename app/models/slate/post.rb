@@ -3,7 +3,7 @@ class Slate::Post < ActiveRecord::Base
   belongs_to :author, :class_name => Slate.user_class
   has_many :images, :dependent => :destroy
 
-  attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id
+  attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list
 
   before_save :author=
 
@@ -17,6 +17,10 @@ class Slate::Post < ActiveRecord::Base
 
   def self.drafts(params)
     self.where(:published => false).order('id DESC')
+  end
+
+  def self.tagged(params)
+    self.where(:published => true).tagged_with(params[:tag_name]).paginate(:page => posts_page(params), :per_page => posts_limit(params))
   end
 
   def self.posts_limit(params)
