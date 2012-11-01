@@ -6,9 +6,17 @@
       = @markdown_parser.markdown_to_html(@post.body).html_safe
     %hr.gradient-black
   .actions
+    - if @post.published
+      = link_to "#{post_path(@post)}#comments" do
+        %i.icon-comment.icon
+      = link_to "#{post_path(@post)}#tweet" do
+        %i.icon-retweet.icon
+      = link_to "#{post_path(@post)}#like" do
+        %i.icon-thumbs-up.icon
+
     - if can? :edit, @post
       = link_to edit_post_path(@post), :class => "" do
-        %i.icon-cog
+        %i.icon-edit.icon
     - if can? :delete, @post
       = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "" do
         %i.icon-trash.icon
@@ -17,15 +25,15 @@
         - @post.tag_list.each_with_index do |tag, index|
           = succeed (index < @post.tag_list.count - 1) ? " " : "" do
             %a{:href => tag_path(tag), :class => "label"}>= tag
-  - if @post.published and action_name == "view"
+  - if @post.published and action_name == "show"
     %hr.gradient-black
-    .media
+    #comments
       - unless @post.comments.empty?
         %h4 Comments
         - @post.comments.each do |comment|
-          .media-body
-            %h5.media-heading
-              = "#{comment.author_name} says:"
+          .well
+            %h5
+              = "#{comment.author_name} said #{time_ago_in_words comment.created_at} ago:"
             = comment.body
             .actions
               - if can? :delete, comment

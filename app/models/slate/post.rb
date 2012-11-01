@@ -12,12 +12,14 @@ class Slate::Post < ActiveRecord::Base
 
   self.per_page = 10
 
+  default_scope order('id DESC')
+
   def self.recent(params)
-    self.where(:published => true).order('id DESC').paginate(:page => posts_page(params), :per_page => posts_limit(params))
+    self.where(:published => true).paginate(:page => posts_page(params), :per_page => posts_limit(params))
   end
 
   def self.drafts(params)
-    self.where(:published => false).order('id DESC')
+    self.where(:published => false)
   end
 
   def self.tagged(params)
