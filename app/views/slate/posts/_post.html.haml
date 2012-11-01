@@ -17,3 +17,37 @@
         - @post.tag_list.each_with_index do |tag, index|
           = succeed (index < @post.tag_list.count - 1) ? " " : "" do
             %a{:href => tag_path(tag), :class => "label"}>= tag
+  %hr.gradient-black
+  .media
+    - unless @post.comments.empty?
+      %h4 Comments
+      - @post.comments.each do |comment|
+        .media-body
+          %h5.media-heading
+            = "#{comment.author_name} says:"
+          = comment.body
+          .actions
+            - if can? :delete, comment
+              = link_to post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+                %i.icon-trash.icon
+      %hr.gradient-black
+    %h4 Leave a Comment
+    = form_for([@post, @post.comments.build]) do |f|
+      - if @post.errors.any?
+        #error_explanation
+          %h5
+            = pluralize(@post.errors.count, "error")
+            prohibited this comment from being saved:
+          %ul
+            - @blog.errors.full_messages.each do |msg|
+              %li= msg
+      .field
+        = f.label :author_name, "Name"
+        = f.text_field :author_name, :placeholder => "This field is required."
+      .field
+        = f.label :author_email, "Email"
+        = f.text_field :author_email, :placeholder => "This field is required."
+      .field
+        = f.label :body, "Comment"
+        = f.text_area :body, :placeholder => "Type your comment here.", :rows => 3
+      = f.submit :class => "btn btn-small", :value => "Post Your Comment"
