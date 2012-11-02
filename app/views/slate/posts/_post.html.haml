@@ -4,6 +4,11 @@
   %div
     - if @post.body
       = @markdown_parser.markdown_to_html(@post.body).html_safe
+      - unless @post.tag_list.empty?
+        %div.tags
+          - @post.tag_list.each_with_index do |tag, index|
+            = succeed (index < @post.tag_list.count - 1) ? " " : "" do
+              %a{:href => tag_path(tag), :class => "label"}>= tag
     %hr.gradient-black
   .actions
     - if @post.published
@@ -20,11 +25,6 @@
     - if can? :delete, @post
       = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "" do
         %i.icon-trash.icon
-    - unless @post.tag_list.empty?
-      %div.tags
-        - @post.tag_list.each_with_index do |tag, index|
-          = succeed (index < @post.tag_list.count - 1) ? " " : "" do
-            %a{:href => tag_path(tag), :class => "label"}>= tag
   - if @post.published and action_name == "show"
     %hr.gradient-black
     #comments
