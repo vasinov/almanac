@@ -12,8 +12,13 @@ module Slate
       @comment.post = @post
 
       respond_with(@comment) do |format|
+        @comment.spam = (@blog.rakismet_key?) ? @comment.spam? : false
+
         if @comment.save
-          format.html { redirect_to post_path(@comment.post), :notice => 'Comment was successfully posted.' }
+          format.html {
+            redirect_to post_path(@comment.post),
+                        :notice => (@comment.spam) ? "Your comment looks like spam, it won't be published." : "Comment was successfully posted."
+          }
         else
           format.html { render :action => :back, :alert => 'Something went wrong, try again.' }
         end

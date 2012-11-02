@@ -28,9 +28,9 @@
   - if @post.published and action_name == "show"
     %hr.gradient-black
     #comments
-      - unless @post.comments.empty?
+      - unless @comments.empty?
         %h4 Comments
-        - @post.comments.each do |comment|
+        - @comments.each do |comment|
           .well
             %h5
               = "#{comment.author_name} said #{time_ago_in_words comment.created_at} ago:"
