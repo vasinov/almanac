@@ -5,8 +5,10 @@ PATH
       acts-as-taggable-on (~> 2.3.1)
       cancan
       coffee-rails
+      database_cleaner
       devise
       dragonfly
+      factory_girl_rails
       haml
       haml-rails
       jquery-rails
@@ -63,6 +65,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    database_cleaner (0.8.0)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)

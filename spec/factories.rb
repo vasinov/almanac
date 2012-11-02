@@ -6,9 +6,6 @@ FactoryGirl.define do
     title { FactoryGirl.generate(:title) }
     body { FactoryGirl.generate(:body) }
     published true
-
-    factory :manager do
-    end
   end
 
   factory :blog, :class => Slate::Blog do
