@@ -1,0 +1,99 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO "slate_blogs" ("author_id", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["author_id", nil], ["created_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00], ["title", "Fun Title 1"], ["updated_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_blogs" SET "title" = '', "updated_at" = '2012-10-11 20:58:39.211384' WHERE "slate_blogs"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 1"], ["created_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00], ["published", true], ["title", "Fun Title 2"], ["updated_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_posts" SET "body" = '', "updated_at" = '2012-10-11 20:58:39.226309' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 2"], ["created_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00], ["published", true], ["title", "Fun Title 3"], ["updated_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_posts" SET "title" = '', "updated_at" = '2012-10-11 20:58:39.230160' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 3"], ["created_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00], ["published", true], ["title", "Fun Title 4"], ["updated_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_posts" SET "published" = 'f', "body" = '', "updated_at" = '2012-10-11 20:58:39.233217' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 4"], ["created_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00], ["published", true], ["title", "Fun Title 5"], ["updated_at", Thu, 11 Oct 2012 20:58:39 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_posts" SET "published" = 'f', "title" = '', "updated_at" = '2012-10-11 20:58:39.236599' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (58.3ms)[0m  [1mINSERT INTO "slate_blogs" ("author_id", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["author_id", nil], ["created_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00], ["title", "Fun Title 1"], ["updated_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_blogs" SET "title" = '', "updated_at" = '2012-10-14 04:00:05.158249' WHERE "slate_blogs"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (17.7ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 1"], ["created_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00], ["published", true], ["title", "Fun Title 2"], ["updated_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "slate_posts" SET "body" = '', "updated_at" = '2012-10-14 04:00:05.190402' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 2"], ["created_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00], ["published", true], ["title", "Fun Title 3"], ["updated_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_posts" SET "title" = '', "updated_at" = '2012-10-14 04:00:05.194296' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 3"], ["created_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00], ["published", true], ["title", "Fun Title 4"], ["updated_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  UPDATE "slate_posts" SET "published" = 'f', "body" = '', "updated_at" = '2012-10-14 04:00:05.197870' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (29.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "slate_posts" ("author_id", "blog_id", "body", "created_at", "published", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["author_id", nil], ["blog_id", nil], ["body", "Some very long body 4"], ["created_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00], ["published", true], ["title", "Fun Title 5"], ["updated_at", Sun, 14 Oct 2012 04:00:05 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "slate_posts" SET "published" = 'f', "title" = '', "updated_at" = '2012-10-14 04:00:05.230459' WHERE "slate_posts"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
