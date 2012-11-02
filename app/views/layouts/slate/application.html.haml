@@ -1,0 +1,44 @@
+!!! 5
+%html
+  %head
+    %title Slate
+    = auto_discovery_link_tag(:rss, "#{root_path}posts.rss")
+    = stylesheet_link_tag    "slate/application", :media => "all"
+    = javascript_include_tag "slate/application"
+    = csrf_meta_tags
+  %body.slate{"data-background" => (@blog.background) ? @blog.background.url : nil}
+    .container
+      .page-header#header
+        %h2
+          - if @blog.nil?
+            = "Your Blog Doesn't Exist Yet"
+          - else
+            = link_to(:root, :class => "logo") do
+              %img.img-circle{ :src => (@blog.logo) ? @blog.logo.url : asset_path('slate/background.jpg') }
+            = link_to(:root, :class => "title") do
+              = @blog.title
+        - unless @blog.nil?
+          #top-controls
+            - unless cannot? :create, Slate::Post
+              = link_to(new_post_path) do
+                %img{ :src => asset_path('slate/icons/compose.png') }
+            - unless cannot? :manage, @blog
+              = link_to(edit_blog_path(@blog)) do
+                %img{ :src => asset_path('slate/icons/gear.png') }
+            = link_to("#{root_path}posts.rss") do
+              %img{ :src => asset_path('slate/icons/feed.png') }
+          - unless @blog.twitter.empty?
+            %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/vasinov"}
+              = "Follow @#{@blog.twitter}"
+            = render :template => 'layouts/slate/_twitter_follow'
+      - if alert
+        .alert.alert-error.alert-block
+          %a.close{"data-dismiss" => "alert"} ×
+          = alert
+      - if notice
+        .alert.alert-info.alert-block
+          %a.close{"data-dismiss" => "alert"} ×
+          = notice
+      = yield
+    - unless @blog.google_analytics.empty?
+      = render :template => 'layouts/slate/_ga'

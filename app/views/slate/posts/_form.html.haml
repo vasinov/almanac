@@ -1,0 +1,40 @@
+.well
+  .well
+    - unless @post.images.empty?
+      .images
+        - @post.images.each do |image|
+          - if image.id
+            - unless image.thumb.nil?
+              = image_tag image.thumb.url
+    = form_for([@post, @post.images.build], :html => { :multipart => true }) do |f|
+      .custom-upload
+        %input{:name => "image[image]", :type => "file"}
+        .fake-file
+          %input{:disabled => "disabled"}
+      = f.submit :class => "btn btn-small", :value => "Upload Image"
+  = form_for @post do |f|
+    - if @post.errors.any?
+      #error_explanation
+        %h5
+          = pluralize(@post.errors.count, "error")
+          prohibited this post from being saved:
+        %ul
+          - @blog.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :title, "Post Title"
+      = f.text_field :title, :placeholder => "Title is required."
+    .field
+      = f.label :excerpt, "Excerpt"
+      = f.text_area :excerpt, :placeholder => "This is where you can put a summary of your post. You can use Markdown here. It's not required."
+    .field
+      = f.label :body, "Main Content"
+      = f.text_area :body, :placeholder => "This is where your post goes. You can use markdown here."
+    .field
+      = f.label :tag_list, "Tags"
+      = f.text_field :tag_list, :placeholder => "Comma-separated tags."
+    %label.checkbox
+      = f.check_box :published
+      = f.label :published, "Publish"
+    .actions
+      = f.submit :class => "btn btn-primary"

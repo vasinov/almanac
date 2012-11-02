@@ -1,0 +1,22 @@
+- if @blog.nil?
+  .well
+    -if !@current_author.nil?
+      Create your first blog
+    - else
+      current_user is not defined. You have to be logged in with Devise in order to configure your first blog.
+- else
+  - if @posts.empty?
+    .well.centered
+      = link_to "Create Your First Post Tagged with “#{@tag}”", new_post_path, :class => "btn"
+  - else
+    %h3.head Posts Tagged with “#{@tag}”
+    - old_date = DateTime.now + 1.day
+    - @posts.each do |post|
+      - @post = post
+      - unless @post.nil?
+        - unless old_date.day == @post.created_at.day
+          %h3.head
+            = @post.created_at.strftime("%B %d, %Y")
+        = render "post"
+        - old_date = @post.created_at
+    = will_paginate(@posts, :renderer => BootstrapPagination::Rails)

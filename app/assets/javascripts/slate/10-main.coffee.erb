@@ -1,0 +1,14 @@
+$(document).ready ->
+  background = $("body").data("background")
+  image = new Image()
+  options = { amount: 1 }
+
+  image.onload = ->
+    Pixastic.process (Pixastic.process image, "blurfast", options), "blur", options
+    $.backstretch options.resultCanvas.toDataURL('image/png')
+
+  image.src = if background? then background else "<%= asset_path('slate/background.jpg') %>"
+
+  $(".custom-upload input[type=file]").change ->
+    $(this).next().find("input").val $(this).val()
+$("#new_image input[type=submit]").show()

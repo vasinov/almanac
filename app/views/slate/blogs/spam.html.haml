@@ -1,0 +1,15 @@
+%h3.head Spam Comments
+.well
+  = render "topbar"
+  - if @comments.empty?
+    There aren't any spam comments at the momemnt. Congratulations!
+  - else
+    - @comments.each do |comment|
+      .well
+        %h5
+          = "#{comment.author_name} said #{time_ago_in_words comment.created_at} ago:"
+        = comment.body
+        .actions
+          - if can? :delete, comment
+            = link_to post_comment_path(comment.post, comment), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+              %i.icon-trash.icon
