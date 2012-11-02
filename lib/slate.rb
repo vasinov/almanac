@@ -8,6 +8,7 @@ require "will_paginate"
 require "will_paginate-bootstrap"
 require "acts-as-taggable-on"
 require "slate/MarkdownParser"
+require "rakismet"
 
 module Slate
   mattr_accessor :user_class

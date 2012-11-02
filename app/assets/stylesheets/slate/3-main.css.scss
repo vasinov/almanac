@@ -61,8 +61,10 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
       }
 
     }
-
     .actions {
+      i.icon {
+        margin-right: 10px;
+      }
       a:hover {
         text-decoration: none;
       }
@@ -196,6 +198,18 @@ $font-family-title: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Ne
 
     ul {
       background-color: white;
+    }
+  }
+
+  #comments {
+    .well {
+      padding: 17px;
+      h5 {
+        margin: 0;
+      }
+      .actions {
+        margin-top: 10px;
+      }
     }
   }
 

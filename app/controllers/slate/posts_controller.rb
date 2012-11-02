@@ -10,6 +10,11 @@ module Slate
     before_filter :only => [:index, :show, :tag] do |controller|
       @markdown_parser = MarkdownParser.new
     end
+    before_filter :only => [:show] do |controller|
+      if @post.published
+        @comments = @post.comments.where(:spam => false)
+      end
+    end
 
     def index
       @posts = (@blog.nil?) ? [] : Post.recent(params)

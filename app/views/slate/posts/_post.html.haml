@@ -4,16 +4,59 @@
   %div
     - if @post.body
       = @markdown_parser.markdown_to_html(@post.body).html_safe
+      - unless @post.tag_list.empty?
+        %div.tags
+          - @post.tag_list.each_with_index do |tag, index|
+            = succeed (index < @post.tag_list.count - 1) ? " " : "" do
+              %a{:href => tag_path(tag), :class => "label"}>= tag
     %hr.gradient-black
   .actions
+    - if @post.published
+      = link_to "#{post_path(@post)}#comments" do
+        %i.icon-comment.icon
+      = link_to "#{post_path(@post)}#tweet" do
+        %i.icon-retweet.icon
+      = link_to "#{post_path(@post)}#like" do
+        %i.icon-thumbs-up.icon
+
     - if can? :edit, @post
       = link_to edit_post_path(@post), :class => "" do
-        %i.icon-cog
+        %i.icon-edit.icon
     - if can? :delete, @post
       = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "" do
         %i.icon-trash.icon
-    - unless @post.tag_list.empty?
-      %div.tags
-        - @post.tag_list.each_with_index do |tag, index|
-          = succeed (index < @post.tag_list.count - 1) ? " " : "" do
-            %a{:href => tag_path(tag), :class => "label"}>= tag
+  - if @post.published and action_name == "show"
+    %hr.gradient-black
+    #comments
+      - unless @comments.empty?
+        %h4 Comments
+        - @comments.each do |comment|
+          .well
+            %h5
+              = "#{comment.author_name} said #{time_ago_in_words comment.created_at} ago:"
+            = comment.body
+            .actions
+              - if can? :delete, comment
+                = link_to post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+                  %i.icon-trash.icon
+        %hr.gradient-black
+      %h4 Leave a Comment
+      = form_for([@post, @post.comments.build]) do |f|
+        - if @post.errors.any?
+          #error_explanation
+            %h5
+              = pluralize(@post.errors.count, "error")
+              prohibited this comment from being saved:
+            %ul
+              - @blog.errors.full_messages.each do |msg|
+                %li= msg
+        .field
+          = f.label :author_name, "Name"
+          = f.text_field :author_name, :placeholder => "This field is required."
+        .field
+          = f.label :author_email, "Email"
+          = f.text_field :author_email, :placeholder => "This field is required."
+        .field
+          = f.label :body, "Comment"
+          = f.text_area :body, :placeholder => "Type your comment here.", :rows => 3
+        = f.submit :class => "btn btn-small", :value => "Post Your Comment"

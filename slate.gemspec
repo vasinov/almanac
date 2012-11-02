@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "will_paginate", '~> 3.0.3'
   s.add_dependency "will_paginate-bootstrap"
   s.add_dependency "acts-as-taggable-on", '~> 2.3.1'
+  s.add_dependency "rakismet"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "factory_girl_rails"

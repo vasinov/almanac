@@ -47,11 +47,17 @@ module Slate
     def update
       respond_with(@blog) do |format|
         if @blog.update_attributes(params[:blog])
-
           format.html { redirect_to :root, :notice => 'Blog was successfully updated.' }
         else
           format.html { render :action => "edit" }
         end
+      end
+    end
+
+    def spam
+      @comments = Comment.spam
+
+      respond_with(@comments) do |format|
       end
     end
   end

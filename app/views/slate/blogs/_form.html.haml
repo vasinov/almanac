@@ -1,4 +1,4 @@
-= form_for @blog, :html => {:class => "well", :multipart => true} do |f|
+= form_for @blog, :html => {:multipart => true} do |f|
   = f.hidden_field :retained_logo
   = f.hidden_field :retained_background
   - if @blog.errors.any?
@@ -33,6 +33,12 @@
   .field
     = f.label :google_analytics, "Google Analytics ID"
     = f.text_field :google_analytics, :placeholder => "e.g. UA-00000000-1"
+  .field
+    = f.label :rakismet_key, "Akismet Antispam Key"
+    = f.text_field :rakismet_key, :placeholder => "e.g. husd38d123dd"
+  .field
+    = f.label :rakismet_url, "Akismet Antispam URL"
+    = f.text_field :rakismet_url, :placeholder => "e.g. http://blog.yourdomain.com"
 
   .actions
     = f.submit :class => "btn btn-primary"

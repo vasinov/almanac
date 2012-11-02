@@ -11,6 +11,10 @@ module Slate
 
     def set_blog
       @blog = Slate::Blog.first
+      unless @blog.nil?
+        Rakismet.key = (@blog.rakismet_key) ? @blog.rakismet_key : ''
+        Rakismet.url = (@blog.rakismet_url) ? @blog.rakismet_url : ''
+      end
     end
   end
 end
