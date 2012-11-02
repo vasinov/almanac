@@ -8,4 +8,8 @@ class Slate::Comment < ActiveRecord::Base
   rakismet_attrs :author => :author_name, :author_email => :author_email
 
   default_scope order('id ASC')
+
+  def self.spam
+    self.where(:spam => true)
+  end
 end

@@ -30,7 +30,7 @@ module Slate
       @comment = Comment.find(params[:id])
       respond_to do |format|
         if @comment.destroy
-          format.html { redirect_to post_path(@post), :notice => 'Post was successfully deleted.' }
+          format.html { redirect_to :back, :notice => 'Comment was successfully deleted.' }
         else
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
