@@ -17,7 +17,7 @@
               %img.img-circle{ :src => (@blog.logo) ? @blog.logo.url : asset_path('slate/background.jpg') }
             = link_to(:root, :class => "title") do
               = @blog.title
-        - unless @blog.nil? or @blog.id.nil?
+        - unless @blog.nil? or  @blog.id.nil?
           #top-controls
             - unless cannot? :create, Slate::Post
               = link_to(new_post_path) do
@@ -27,7 +27,7 @@
                 %img{ :src => asset_path('slate/icons/gear.png') }
             = link_to("#{root_path}posts.rss") do
               %img{ :src => asset_path('slate/icons/feed.png') }
-          - unless @blog.twitter.nil?
+          - unless @blog.twitter.empty?
             %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/#{@blog.twitter}"}
               = "Follow @#{@blog.twitter}"
             = render :template => 'layouts/slate/_twitter_follow'
@@ -40,6 +40,5 @@
           %a.close{"data-dismiss" => "alert"} ×
           = notice
       = yield
-    - if @blog
-      - unless @blog.google_analytics.empty?
-        = render :template => 'layouts/slate/_ga'
+    - unless @blog.nil? or  @blog.google_analytics.nil? or @blog.google_analytics.empty?
+      = render :template => 'layouts/slate/_ga'
