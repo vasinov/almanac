@@ -67,7 +67,7 @@ module Slate
     def create
       @post = Post.new(params[:post])
       @post.blog = Slate::Blog.first
-      @post.author_id = current_user.id
+      @post.author_id = @current_author.id
 
       respond_with(@post) do |format|
         if @post.save

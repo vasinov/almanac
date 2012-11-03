@@ -3,7 +3,8 @@
     -if !@current_author.nil?
       Create your first blog
     - else
-      current_user is not defined. You have to be logged in with Devise in order to configure your first blog.
+      %em current_user
+      is not defined. You have to be logged in with Devise in order to configure your first blog.
 - else
   - if @posts.empty?
     .well
