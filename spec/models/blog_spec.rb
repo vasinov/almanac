@@ -1,17 +1,16 @@
 require 'spec_helper'
 
 describe Slate::Blog do
-  before :each do
-    @blog = create(:blog)
+  it "should be possible to create a valid blog" do
+    expect(create(:blog)).to eq(Slate::Blog.first)
   end
 
-  describe ".first" do
-    it "exists" do
-      expect(@blog).to eq(Slate::Blog.first)
-    end
-    #it "should not create blog without title" do
-    #  @blog.title = ""
-    #  (@blog.save).should false
-    #end
+  it "should not create blog without title" do
+    build(:blog, title: "").should_not be_valid
+  end
+
+  it "should not create more than one blog" do
+    create(:blog)
+    expect { create(:blog) }.to raise_error
   end
 end

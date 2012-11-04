@@ -11,9 +11,20 @@ class Slate::Blog < ActiveRecord::Base
   image_accessor :background do
     after_assign{|a| a.process!(:thumb, '1200x>').encode(:png) }
   end
+
   before_save :author=
+  before_create :check_for_uniqueness
+
+  validates_presence_of :title
 
   def author=
     @author = Slate.user_class.constantize.find(self.author_id)
+  end
+
+  private
+  def check_for_uniqueness
+    unless Slate::Blog.first == nil
+      raise "You can only have one blog."
+    end
   end
 end
