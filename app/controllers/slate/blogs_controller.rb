@@ -10,7 +10,7 @@ module Slate
     end
 
     def new
-      @blog = (!Blog.first.nil?) ? Blog.first : Blog.new
+      @blog = (Blog.first.nil?) ? Blog.new : Blog.first
 
       respond_with(@blog) do |format|
         if @blog.id
@@ -23,10 +23,10 @@ module Slate
 
     def create
       @blog = (!Blog.first.nil?) ? Blog.first : Blog.new(params[:blog])
-      @blog.author = @current_author
+      @blog.author_id = @current_author.id
 
       respond_with(@blog) do |format|
-        if @blog.id
+        if @blog.id.nil?
           if @blog.save
             format.html { redirect_to :root, :notice => 'Blog was successfully created.' }
           else

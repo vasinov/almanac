@@ -6,6 +6,12 @@ class Slate::Post < ActiveRecord::Base
 
   attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list
 
+  validates_presence_of :blog_id
+  validates_presence_of :author_id
+  validates_presence_of :title, :if => lambda {|_| _.published }
+  validates_presence_of :body, :if => lambda {|_| _.published }
+
+
   before_save :author=
 
   acts_as_taggable
@@ -26,10 +32,12 @@ class Slate::Post < ActiveRecord::Base
     self.where(:published => true).tagged_with(params[:tag_name]).paginate(:page => posts_page(params), :per_page => posts_limit(params))
   end
 
+  private
   def self.posts_limit(params)
-    (params[:limit].blank?) ? 30 : params[:limit]
+    (params[:limit].blank?) ? self.per_page : params[:limit]
   end
 
+  private
   def self.posts_page(params)
     (params[:page].blank?) ? 1 : params[:page]
   end
