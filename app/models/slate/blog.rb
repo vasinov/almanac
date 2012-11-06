@@ -15,6 +15,7 @@ class Slate::Blog < ActiveRecord::Base
   before_save :author=
   before_create :check_for_uniqueness
 
+  validates_presence_of :author_id
   validates_presence_of :title
 
   def author=

@@ -7,7 +7,7 @@ class Slate::Post < ActiveRecord::Base
   attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list
 
   validates_presence_of :blog_id
-  #validates_presence_of :author_id
+  validates_presence_of :author_id
   validates_presence_of :title, :if => lambda {|_| _.published }
   validates_presence_of :body, :if => lambda {|_| _.published }
 
