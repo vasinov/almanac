@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Slate::Post do
   it "should be possible to create a valid post" do
-    expect(create(:post)).to eq(Slate::Post.first)
+    create(:post)
+    expect(Slate::Post.all.count).to eq(1)
   end
   it "should be possible to create a post draft without a title" do
     build(:post_draft, title: "").should be_valid
