@@ -5,11 +5,11 @@ describe Slate::Blog do
     expect(create(:blog)).to eq(Slate::Blog.first)
   end
 
-  it "should not create blog without title" do
+  it "should not be possible to create a blog without a title" do
     build(:blog, title: "").should_not be_valid
   end
 
-  it "should not create more than one blog" do
+  it "should not be possible to create more than one blog" do
     create(:blog)
     expect { create(:blog) }.to raise_error
   end
