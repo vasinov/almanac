@@ -2,6 +2,11 @@ FactoryGirl.define do
   sequence(:tag_list) {|n| "common,test#{n},rspec#{n},ruby#{n},#rails#{n}" }
   sequence(:author_id)
 
+  factory :user, :class => User do
+    email { Faker::Internet.safe_email }
+    password { Faker::Lorem.characters(10) }
+  end
+
   factory :post, :class => Slate::Post do
     title { Faker::Lorem.sentence(3) }
     excerpt { Faker::Lorem.sentence(1) }
