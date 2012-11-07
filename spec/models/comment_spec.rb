@@ -28,8 +28,7 @@ describe Slate::Comment do
       comments_count = 10
       spam_comments_count = 5
       post = create(:post_with_comments, comments_count: comments_count)
-      post_id = post.id
-      create_list(:spam_comment, spam_comments_count, post_id: post_id)
+      create_list(:spam_comment, spam_comments_count, post_id: post.id)
       expect(Slate::Comment.spam.count).to eq spam_comments_count
     end
   end
