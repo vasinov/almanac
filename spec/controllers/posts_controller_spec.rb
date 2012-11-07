@@ -39,13 +39,13 @@ describe Slate::PostsController do
       response.should render_template :tag
     end
   end
+
   describe "POST create" do
     context "with valid attributes" do
       it "creates a new post" do
         expect{
           post :create, :use_route => :slate, post: attributes_for(:post, :blog_id => @blog.id)
         }.to change(Slate::Post, :count).by(1)
-
       end
 
       it "redirects to the site root" do
@@ -58,7 +58,6 @@ describe Slate::PostsController do
         expect{
           post :create, :use_route => :slate, post: attributes_for(:post, :title => nil, :blog_id => @blog.id)
         }.to_not change(Slate::Post, :count)
-
       end
 
       it "re-renders the new method" do

@@ -20,7 +20,7 @@ module Slate
                         :notice => (@comment.spam) ? "Your comment looks like spam, it won't be published." : "Comment was successfully posted."
           }
         else
-          format.html { render :action => :back, :alert => 'Something went wrong, try again.' }
+          format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
       end
     end
@@ -30,7 +30,7 @@ module Slate
       @comment = Comment.find(params[:id])
       respond_to do |format|
         if @comment.destroy
-          format.html { redirect_to :back, :notice => 'Comment was successfully deleted.' }
+          format.html { redirect_to post_path(@post), :notice => 'Comment was successfully deleted.' }
         else
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
