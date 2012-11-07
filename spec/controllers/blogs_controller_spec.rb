@@ -13,9 +13,10 @@ describe Slate::BlogsController do
         #expect{
         #  post :create, { :use_route => :slate }, blog: attributes_for(:blog)
         #}.to change(Slate::Blog.all, :count).by(1)
-
-        post :create, { :use_route => :slate }, blog: attributes_for(:blog)
+        #create(:blog)
+        post :create, { :use_route => :slate }, blog: attributes_for(:blog, :author_id => nil)
         expect(Slate::Blog.all.count).to eq 1
+        #response.should redirect_to(controller.posts_url)
       end
     end
 
