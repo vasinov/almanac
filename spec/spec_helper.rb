@@ -23,6 +23,14 @@ RSpec.configure do |config|
     DatabaseCleaner.start
   end
 
+  config.before type: :controller do
+    user = create(:user)
+    sign_in = sign_in user
+    Slate::ApplicationController.send(:define_method, :current_user) do
+      user
+    end
+  end
+
   config.after(:each) do
     DatabaseCleaner.clean
   end
