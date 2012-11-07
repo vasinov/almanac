@@ -6,7 +6,7 @@ module Slate
     before_filter :set_blog
 
     def set_current_author
-      @current_author = (current_user.nil?) ? nil : current_user
+      current_user ||= nil
     end
 
     def set_blog

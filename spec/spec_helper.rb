@@ -10,6 +10,7 @@ Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Devise::TestHelpers, :type => :controller
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
 
@@ -20,6 +21,14 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+  end
+
+  config.before type: :controller do
+    user = create(:user)
+    sign_in = sign_in user
+    Slate::ApplicationController.send(:define_method, :current_user) do
+      user
+    end
   end
 
   config.after(:each) do

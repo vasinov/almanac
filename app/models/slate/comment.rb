@@ -3,7 +3,7 @@ class Slate::Comment < ActiveRecord::Base
 
   belongs_to :post
 
-  attr_accessible :body, :author_email, :author_name
+  attr_accessible :body, :author_email, :author_name, :post_id
 
   validates_presence_of :author_name
   validates_presence_of :author_email
