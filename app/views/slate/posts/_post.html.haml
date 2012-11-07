@@ -2,13 +2,15 @@
   %h4
     = link_to (@post.title) ? @post.title : "No Title", @post
   %div
-    - if @post.body
+    - if (action_name == "index" or action_name == "tag") and !@post.excerpt.empty?
+      = @markdown_parser.markdown_to_html(@post.excerpt).html_safe
+    - else
       = @markdown_parser.markdown_to_html(@post.body).html_safe
-      - unless @post.tag_list.empty?
-        %div.tags
-          - @post.tag_list.each_with_index do |tag, index|
-            = succeed (index < @post.tag_list.count - 1) ? " " : "" do
-              %a{:href => tag_path(tag), :class => "label"}>= tag
+    - unless @post.tag_list.empty?
+      %div.tags
+        - @post.tag_list.each_with_index do |tag, index|
+          = succeed (index < @post.tag_list.count - 1) ? " " : "" do
+            %a{:href => tag_path(tag), :class => "label"}>= tag
     %hr.gradient-black
   .actions
     - if @post.published
