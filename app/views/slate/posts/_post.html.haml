@@ -16,7 +16,7 @@
     - if @post.published
       = link_to "#{post_path(@post)}#comments" do
         %i.icon-comment.icon
-      = link_to "#{post_path(@post)}#tweet" do
+      = link_to "http://twitter.com/share?url=#{post_url(@post)}&via=MyTwitterUserName&text=The editable text I want to include automatically in the tweet", :target => "_blank" do
         %i.icon-retweet.icon
       = link_to "#{post_path(@post)}#like" do
         %i.icon-thumbs-up.icon
