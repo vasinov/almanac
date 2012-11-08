@@ -10,6 +10,7 @@ $(document).ready ->
   image.src = if background? then background else "<%= asset_path('slate/background.jpg') %>"
 
   $(".custom-upload input[type=file]").change ->
+    $(this).parent().parent().find("input.btn").show()
     $(this).next().find("input").val $(this).val()
 
   $("a.popup").click (e) ->
