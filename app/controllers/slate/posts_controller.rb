@@ -18,11 +18,11 @@ module Slate
 
     def index
       @posts = (@blog.nil?) ? [] : Post.recent(params)
-      @drafts = (@blog.nil? or @current_author.nil?) ? [] : Post.drafts(params)
+      @drafts = (@blog.nil? or current_user.nil?) ? [] : Post.drafts(params)
 
       respond_with(@posts) do |format|
         if @blog.nil?
-          unless @current_author.nil?
+          unless current_user.nil?
             format.html { redirect_to new_path }
           end
         else
@@ -38,7 +38,7 @@ module Slate
 
       respond_with(@posts) do |format|
         if @blog.nil?
-          unless @current_author.nil?
+          unless current_user.nil?
             format.html { redirect_to new_path }
           end
         else

@@ -10,7 +10,7 @@ module Slate
       @image = Image.new(params[:image])
 
       if params[:post_id] == "0"
-        @post = Post.create( { :published => false, :author_id => @current_author.id, :blog_id =>  @blog.id } )
+        @post = Post.create( { :published => false, :author_id => current_user.id, :blog_id =>  @blog.id } )
       else
         @post = Post.find(params[:post_id])
       end
