@@ -16,9 +16,9 @@
     - if @post.published
       = link_to "#{post_path(@post)}#comments" do
         %i.icon-comment.icon
-      = link_to "#{post_path(@post)}#tweet" do
+      = link_to "http://twitter.com/share?url=#{post_url(@post)}#{"&via="+@blog.twitter unless @blog.twitter.empty?}&text=#{@post.title}", :target => "_blank", :class => "popup" do
         %i.icon-retweet.icon
-      = link_to "#{post_path(@post)}#like" do
+      = link_to "http://www.facebook.com/share.php?u=#{post_url(@post)}", :target => "_blank", :class => "popup" do
         %i.icon-thumbs-up.icon
 
     - if can? :edit, @post

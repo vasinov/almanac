@@ -11,4 +11,9 @@ $(document).ready ->
 
   $(".custom-upload input[type=file]").change ->
     $(this).next().find("input").val $(this).val()
+
+  $("a.popup").click (e) ->
+    e.preventDefault()
+    window.open(this.href, "mywindow","width=600,height=300")
+
 $("#new_image input[type=submit]").show()
