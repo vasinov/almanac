@@ -17,4 +17,8 @@ $(document).ready ->
     e.preventDefault()
     window.open(this.href, "mywindow","width=600,height=300")
 
+  $("a.add-photo").click (e) ->
+    e.preventDefault()
+    console.log($(this).data("image"))
+
 $("#new_image input[type=submit]").show()
