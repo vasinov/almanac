@@ -27,9 +27,15 @@
         %ul
           - @post.errors.full_messages.each do |msg|
             %li= msg
-    .field
-      = f.label :title, "Post Title"
-      = f.text_field :title, :placeholder => "Title is required."
+    .row
+      .span3
+        .field
+          = f.label :title, "Post Title"
+          = f.text_field :title, :placeholder => "Title is required."
+      .span3
+        .field
+          = f.label :created_at, "Timestamp"
+          = f.text_field :created_at, :class => "datepicker"
     .field
       = f.label :excerpt, "Excerpt"
       = f.text_area :excerpt, :placeholder => "This is where you can put a summary of your post. You can use Markdown here. It's not required."
@@ -39,9 +45,6 @@
     .field
       = f.label :tag_list, "Tags"
       = f.text_field :tag_list, :placeholder => "Comma-separated tags."
-    .field
-      = f.label :created_at, "Timestamp"
-      = f.text_field :created_at
     %label.checkbox
       = f.check_box :published
       = f.label :published, "Publish"

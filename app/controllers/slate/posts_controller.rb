@@ -79,6 +79,7 @@ module Slate
     end
 
     def edit
+      @post.created_at = Date.parse(@post.created_at.to_s).strftime('%d/%m/%Y')
       respond_to do |format|
         format.html
       end
