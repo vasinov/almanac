@@ -15,7 +15,7 @@
               = image_tag image.thumb.url
               %p
                 %a{ :href => "#add", :class => "add-photo", "data-image" => image.image.url } Add To Post
-                %a{ :class => "close"} &times;
+                -#%a{ :class => "close"} &times;
 %h3.head Post Editor
 .well
   = form_for @post do |f|

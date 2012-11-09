@@ -19,6 +19,6 @@ $(document).ready ->
 
   $("a.add-photo").click (e) ->
     e.preventDefault()
-    console.log($(this).data("image"))
+    $("#post_body").val($("#post_body").val() + "\n\n![](" + $(this).data("image") + ")\n\n");
 
 $("#new_image input[type=submit]").show()
