@@ -1,17 +1,23 @@
+%h3.head Post Images
 .well
-  .well
-    - unless @post.images.empty?
-      .images
-        - @post.images.each do |image|
-          - if image.id
-            - unless image.thumb.nil?
+  = form_for([@post, @post.images.build], :html => { :multipart => true }) do |f|
+    .custom-upload
+      %input{:name => "image[image]", :type => "file"}
+      .fake-file
+        %input{:disabled => "disabled"}
+    = f.submit :class => "btn btn-small", :value => "Upload Image"
+  - unless @post.images.empty?
+    .images
+      - @post.images.each do |image|
+        - if image.id
+          - unless image.thumb.nil?
+            .image-thumb
               = image_tag image.thumb.url
-    = form_for([@post, @post.images.build], :html => { :multipart => true }) do |f|
-      .custom-upload
-        %input{:name => "image[image]", :type => "file"}
-        .fake-file
-          %input{:disabled => "disabled"}
-      = f.submit :class => "btn btn-small", :value => "Upload Image"
+              %p
+                %a{ :href => "#add", :class => "add-photo", "data-image" => image.image.url } Add To Post
+                -#%a{ :class => "close"} &times;
+%h3.head Post Editor
+.well
   = form_for @post do |f|
     - if @post.errors.any?
       #error_explanation
