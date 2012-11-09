@@ -1,4 +1,4 @@
-.well
+.well.post
   %h4
     = link_to (@post.title) ? @post.title : "No Title", @post
   %div
@@ -25,7 +25,7 @@
       = link_to edit_post_path(@post), :class => "" do
         %i.icon-edit.icon
     - if can? :delete, @post
-      = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+      = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete-post" do
         %i.icon-trash.icon
   - if @post.published and action_name == "show"
     %hr.gradient-black

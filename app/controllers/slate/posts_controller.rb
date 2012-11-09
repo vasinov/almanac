@@ -102,6 +102,7 @@ module Slate
       respond_to do |format|
         if @post.destroy
           format.html { redirect_to :root, :notice => 'Post was successfully deleted.' }
+          format.js { render :nothing => true }
         else
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end

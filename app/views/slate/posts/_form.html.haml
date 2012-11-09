@@ -39,6 +39,9 @@
     .field
       = f.label :tag_list, "Tags"
       = f.text_field :tag_list, :placeholder => "Comma-separated tags."
+    .field
+      = f.label :created_at, "Timestamp"
+      = f.text_field :created_at
     %label.checkbox
       = f.check_box :published
       = f.label :published, "Publish"

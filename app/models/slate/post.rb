@@ -4,7 +4,7 @@ class Slate::Post < ActiveRecord::Base
   has_many :images, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
-  attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list
+  attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list, :created_at
 
   validates_presence_of :blog_id
   validates_presence_of :author_id
@@ -18,7 +18,7 @@ class Slate::Post < ActiveRecord::Base
 
   self.per_page = 10
 
-  default_scope order('id DESC')
+  default_scope order('created_at DESC')
 
   def self.recent(params)
     self.where(:published => true).paginate(:page => posts_page(params), :per_page => posts_limit(params))

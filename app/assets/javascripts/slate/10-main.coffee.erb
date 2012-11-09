@@ -19,6 +19,13 @@ $(document).ready ->
 
   $("a.add-photo").click (e) ->
     e.preventDefault()
-    $("#post_body").val($("#post_body").val() + "\n\n![](" + $(this).data("image") + ")\n\n");
+    $("#post_body").val($("#post_body").val() + "\n\n![](" + $(this).data("image") + ")\n\n")
+
+  $(".delete-post").bind ("ajax:success"), ->
+    post = $(this).parent().parent()
+    console.log(post)
+    if post.prev().attr('class') == "head" and (post.next().attr('class') == "head")
+      post.prev().fadeOut()
+    $(this).parent().parent().fadeOut()
 
 $("#new_image input[type=submit]").show()
