@@ -27,12 +27,12 @@
         %ul
           - @post.errors.full_messages.each do |msg|
             %li= msg
-    .row
-      .span3
+    .row-fluid
+      .span6
         .field
           = f.label :title, "Post Title"
           = f.text_field :title, :placeholder => "Title is required."
-      .span3
+      .span6
         .field
           = f.label :written_at, "Timestamp"
           = f.text_field :written_at, :class => "datepicker"
