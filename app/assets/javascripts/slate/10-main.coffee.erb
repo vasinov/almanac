@@ -10,7 +10,7 @@ $(document).ready ->
   image.src = if background? then background else "<%= asset_path('slate/background.jpg') %>"
 
   $(".custom-upload input[type=file]").change ->
-    $(this).parent().parent().find("input.btn").show()
+    $("#new_image input[type=submit]").show()
     $(this).next().find("input").val $(this).val()
 
   $("a.popup").click (e) ->
@@ -24,8 +24,8 @@ $(document).ready ->
   $(".delete-post").bind ("ajax:success"), ->
     post = $(this).parent().parent()
     console.log(post)
-    if post.prev().attr('class') == "head" and (post.next().attr('class') == "head")
+    if post.prev().attr('class') is "head" and post.next().attr('class') is "head"
       post.prev().fadeOut()
     $(this).parent().parent().fadeOut()
 
-$("#new_image input[type=submit]").show()
+  $('.datepicker').datepicker({ format: 'yyyy-mm-dd' })

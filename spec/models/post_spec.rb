@@ -20,6 +20,9 @@ describe Slate::Post do
   it "should not be possible to publish a post without a body" do
     build(:post, body: "").should_not be_valid
   end
+  it "should not be possible to publish a post without a written_at" do
+    build(:post, written_at: nil).should_not be_valid
+  end
   it "should be possible to publish a post without an excerpt" do
     build(:post, excerpt: "").should be_valid
   end

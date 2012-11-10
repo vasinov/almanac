@@ -1,6 +1,6 @@
 .well.post
   %h4
-    = link_to (@post.title) ? @post.title : "No Title", @post
+    = link_to (@post.title.empty?) ? "No Title" : @post.title, @post
   %div
     - if (action_name == "index" or action_name == "tag") and !@post.excerpt.empty?
       = @markdown_parser.markdown_to_html(@post.excerpt).html_safe

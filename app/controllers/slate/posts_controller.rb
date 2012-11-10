@@ -57,6 +57,7 @@ module Slate
     def new
       @post = Post.new
       @post.id = 0
+      #@post.updated_at = Date.today.strftime('%m/%d/%Y')
       @images = @post.images
 
       respond_with(@post) do |format|
@@ -79,6 +80,7 @@ module Slate
     end
 
     def edit
+      #@post.updated_at = @post.updated_at.strftime('%m/%d/%Y')
       respond_to do |format|
         format.html
       end
@@ -89,7 +91,6 @@ module Slate
 
       respond_with(@post) do |format|
         if @post.update_attributes(params[:post])
-
           format.html { redirect_to :root, :notice => 'Post was successfully updated.' }
         else
           format.html { render :action => "edit" }
