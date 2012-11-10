@@ -22,9 +22,9 @@
     - @posts.each do |post|
       - @post = post
       - unless @post.nil?
-        - unless old_date.day == @post.created_at.day
+        - unless old_date.day == @post.written_at.day and old_date.month == @post.written_at.month and old_date.year == @post.written_at.year
           %h3.head
-            = @post.created_at.strftime("%B %d, %Y")
+            = @post.written_at.strftime("%B %d, %Y")
         = render "post"
-        - old_date = @post.created_at
+        - old_date = @post.written_at
     = will_paginate(@posts, :renderer => BootstrapPagination::Rails)
