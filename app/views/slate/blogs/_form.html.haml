@@ -23,8 +23,37 @@
     = f.file_field :logo
 
   .field
-    = f.label :background
+    = f.label :background, "Background Image"
     = f.file_field :background
+
+  .field
+    %label
+      Background Behavior
+    .row-fluid
+      .span2
+        = label :background_tile, "false", :class => "radio" do
+          = f.radio_button :background_tile, false
+          Stretch
+      .span2
+        = label :background_tile, "true", :class => "radio" do
+          = f.radio_button :background_tile, true
+          Tile
+  .field
+    %label
+      Background Blur
+    .row-fluid
+      .span2
+        = label :background_blur, 0, :class => "radio" do
+          = f.radio_button :background_blur, 0
+          Off
+      .span2
+        = label :background_blur, 1, :class => "radio" do
+          = f.radio_button :background_blur, 1
+          Normal
+      .span2
+        = label :background_blur, 2, :class => "radio" do
+          = f.radio_button :background_blur, 2
+          Strong
 
   %h4 Under the Hood
   .field

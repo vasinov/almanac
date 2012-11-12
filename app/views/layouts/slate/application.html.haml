@@ -6,7 +6,8 @@
     = stylesheet_link_tag    "slate/application", :media => "all"
     = javascript_include_tag "slate/application"
     = csrf_meta_tags
-  %body.slate{"data-background" => (@blog) ? ((@blog.background) ? @blog.background.url : nil) : nil}
+  %body.slate{ "data-background-image" => (@blog) ? ((@blog.background) ? @blog.background.url : nil) : nil,
+               "data-background-tile" => (@blog) ? ((@blog.background_tile) ? "true" : "false") : nil }
     .container
       .page-header#header
         %h2

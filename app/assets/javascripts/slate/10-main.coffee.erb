@@ -1,13 +1,18 @@
 $(document).ready ->
-  background = $("body").data("background")
-  image = new Image()
-  options = { amount: 1 }
+  background = $("body").data("background-image")
+  background_tile = $("body").data("background-tile")
 
-  image.onload = ->
-    Pixastic.process (Pixastic.process image, "blurfast", options), "blur", options
-    $.backstretch options.resultCanvas.toDataURL('image/png')
+  if background_tile
+    $("body.slate").css("background-image", "url(" + if background? then background else "<%= asset_path('slate/background.jpg') %>" + ") repeat")
+  else
+    image = new Image()
+    options = { amount: 1 }
 
-  image.src = if background? then background else "<%= asset_path('slate/background.jpg') %>"
+    image.onload = ->
+      Pixastic.process (Pixastic.process image, "blurfast", options), "blur", options
+      $.backstretch options.resultCanvas.toDataURL('image/png')
+
+    image.src = if background? then background else "<%= asset_path('slate/background.jpg') %>"
 
   $(".custom-upload input[type=file]").change ->
     $("#new_image input[type=submit]").show()
