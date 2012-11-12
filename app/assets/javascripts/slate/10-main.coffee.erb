@@ -23,9 +23,15 @@ $(document).ready ->
 
   $(".delete-post").bind ("ajax:success"), ->
     post = $(this).parent().parent()
-    console.log(post)
     if post.prev().attr('class') is "head" and post.next().attr('class') is "head"
       post.prev().fadeOut()
-    $(this).parent().parent().fadeOut()
+    post.fadeOut()
+
+  $(".delete-comment").bind ("ajax:success"), ->
+    comment = $(this).parent().parent()
+    if comment.prev().prop("tagName") is "H4" and comment.next().prop("tagName") is "HR"
+      comment.prev().fadeOut()
+      comment.next().fadeOut()
+    comment.fadeOut()
 
   $('.datepicker').datepicker({ format: 'yyyy-mm-dd' })

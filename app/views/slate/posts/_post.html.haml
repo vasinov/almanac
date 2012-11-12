@@ -39,19 +39,11 @@
             = comment.body
             .actions
               - if can? :delete, comment
-                = link_to post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+                = link_to post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete-comment" do
                   %i.icon-trash.icon
         %hr.gradient-black
       %h4 Leave a Comment
       = form_for([@post, @post.comments.build]) do |f|
-        - if @post.errors.any?
-          #error_explanation
-            %h5
-              = pluralize(@post.errors.count, "error")
-              prohibited this comment from being saved:
-            %ul
-              - @blog.errors.full_messages.each do |msg|
-                %li= msg
         .field
           = f.label :author_name, "Name"
           = f.text_field :author_name, :placeholder => "This field is required."
