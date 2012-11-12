@@ -13,15 +13,15 @@
           - unless image.thumb.nil?
             .image-thumb
               = image_tag image.thumb.url
-              %p
+              %p.centered
                 %a{ :href => "#add", :class => "add-photo", "data-image" => image.image.url } Add To Post
                 -#%a{ :class => "close"} &times;
 %h3.head Post Editor
 .well
   = form_for @post do |f|
     - if @post.errors.any?
-      #error_explanation
-        %h5
+      #error_explanation.well
+        %h4
           = pluralize(@post.errors.count, "error")
           prohibited this post from being saved:
         %ul
