@@ -1,7 +1,8 @@
 !!! 5
 %html
   %head
-    %title Slate
+    %title
+      = (@blog) ? ((@blog.title) ? @blog.title : "Slate Blog") : "Slate Blog"
     = auto_discovery_link_tag(:rss, "#{root_path}posts.rss")
     = stylesheet_link_tag    "slate/application", :media => "all"
     = javascript_include_tag "slate/application"
