@@ -9,6 +9,7 @@ require "will_paginate-bootstrap"
 require "acts-as-taggable-on"
 require "slate/MarkdownParser"
 require "rakismet"
+require "bootstrap-rails-engine"
 
 module Slate
   mattr_accessor :user_class
