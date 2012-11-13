@@ -44,5 +44,8 @@
           %a.close{"data-dismiss" => "alert"} ×
           = notice
       = yield
+      %hr.gradient-white
+      .footer
+        = (@blog) ? ((@blog.footer) ? @markdown_parser.markdown_to_html(@blog.footer).html_safe : "&copy; #{Date.today.year}".html_safe) : nil
     - unless @blog.nil? or  @blog.google_analytics.nil? or @blog.google_analytics.empty?
       = render :template => 'layouts/slate/_ga'

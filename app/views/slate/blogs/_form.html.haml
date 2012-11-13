@@ -15,7 +15,10 @@
     = f.text_field :title
   .field
     = f.label :description
-    = f.text_area :description
+    = f.text_area :description, :placeholder => "What is your blog about? This will go under RSS feed.", :rows => 2
+  .field
+    = f.label :footer
+    = f.text_area :footer, :placeholder => "You can use markdown in this field.", :rows => 2
 
   %h4 Graphics
   .field

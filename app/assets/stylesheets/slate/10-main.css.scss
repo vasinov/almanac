@@ -28,6 +28,13 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
     background-image: url("icons/glyphicons-halflings-white.png");
   }
 
+  .footer {
+    color: white;
+    padding-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 1px 4px black;
+  }
+
   .navbar {
     margin-bottom: 30px;
   }
@@ -157,13 +164,6 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
     line-height: 22px;
     @media (max-width: 767px) { width: $content-width / 2; }
     @media (max-width: 480px) { width: 200px; }
-  }
-
-  textarea#post_excerpt {
-    height: 50px;
-  }
-  textarea#blog_description {
-    height: 50px;
   }
 
   textarea#post_body {

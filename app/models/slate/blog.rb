@@ -3,7 +3,7 @@ class Slate::Blog < ActiveRecord::Base
 
   attr_accessible :title, :description, :author_id, :logo, :background, :retained_logo,
                   :retained_background, :google_analytics, :twitter, :rakismet_key,
-                  :rakismet_url, :background_tile, :background_blur
+                  :rakismet_url, :background_tile, :background_blur, :footer
 
   image_accessor :logo do
     after_assign{|a| a.process!(:thumb, '200x200#').encode(:png) }

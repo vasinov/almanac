@@ -38,7 +38,7 @@
           = f.text_field :written_at, :class => "datepicker"
     .field
       = f.label :excerpt, "Excerpt"
-      = f.text_area :excerpt, :placeholder => "This is where you can put a summary of your post. You can use Markdown here. It's not required."
+      = f.text_area :excerpt, :placeholder => "This is where you can put a summary of your post. You can use Markdown here. It's not required.", :rows => 2
     .field
       = f.label :body, "Main Content"
       = f.text_area :body, :placeholder => "This is where your post goes. You can use markdown here."

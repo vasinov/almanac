@@ -7,9 +7,6 @@ module Slate
     before_filter :only => [:show, :edit, :update, :delete] do |controller|
       @post = Post.find(params[:id])
     end
-    before_filter :only => [:index, :show, :tag] do |controller|
-      @markdown_parser = MarkdownParser.new
-    end
     before_filter :only => [:show] do |controller|
       if @post.published
         @comments = @post.comments.where(:spam => false)
