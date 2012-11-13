@@ -31,6 +31,7 @@ module Slate
       respond_to do |format|
         if @comment.destroy
           format.html { redirect_to post_path(@post), :notice => 'Comment was successfully deleted.' }
+          format.js { render :nothing => true }
         else
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end

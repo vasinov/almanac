@@ -14,6 +14,7 @@ FactoryGirl.define do
     published true
     tag_list { generate(:tag_list) }
     author_id { generate(:author_id) }
+    written_at { Date.today }
 
     factory :post_with_comments do
       ignore do

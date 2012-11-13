@@ -7,9 +7,6 @@ module Slate
     before_filter :only => [:show, :edit, :update, :delete] do |controller|
       @post = Post.find(params[:id])
     end
-    before_filter :only => [:index, :show, :tag] do |controller|
-      @markdown_parser = MarkdownParser.new
-    end
     before_filter :only => [:show] do |controller|
       if @post.published
         @comments = @post.comments.where(:spam => false)
@@ -73,6 +70,7 @@ module Slate
         if @post.save
           format.html { redirect_to :root, :notice => 'Post was successfully created.' }
         else
+          @post.id = 0
           format.html { render :action => "new", :alert => 'Something went wrong, try again.' }
         end
       end
@@ -89,7 +87,6 @@ module Slate
 
       respond_with(@post) do |format|
         if @post.update_attributes(params[:post])
-
           format.html { redirect_to :root, :notice => 'Post was successfully updated.' }
         else
           format.html { render :action => "edit" }
@@ -102,6 +99,7 @@ module Slate
       respond_to do |format|
         if @post.destroy
           format.html { redirect_to :root, :notice => 'Post was successfully deleted.' }
+          format.js { render :nothing => true }
         else
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end

@@ -1,17 +1,20 @@
-.well
+.well.post
   %h4
-    = link_to (@post.title) ? @post.title : "No Title", @post
-  %div
-    - if (action_name == "index" or action_name == "tag") and !@post.excerpt.empty?
+    = link_to (@post.title.nil? or @post.title.empty?) ? "No Title" : @post.title, @post
+  - if (action_name == "index" or action_name == "tag") and !(@post.excerpt.nil? or @post.excerpt.empty?)
+    .content
       = @markdown_parser.markdown_to_html(@post.excerpt).html_safe
-    - else
-      = @markdown_parser.markdown_to_html(@post.body).html_safe
-    - unless @post.tag_list.empty?
-      %div.tags
-        - @post.tag_list.each_with_index do |tag, index|
-          = succeed (index < @post.tag_list.count - 1) ? " " : "" do
-            %a{:href => tag_path(tag), :class => "label"}>= tag
-    %hr.gradient-black
+      %p
+        = link_to "Continue reading...", @post
+  - else
+    .content
+      = @markdown_parser.markdown_to_html(@post.body).html_safe if !(@post.body.nil? or @post.body.empty?)
+  - unless @post.tag_list.empty?
+    %div.tags
+      - @post.tag_list.each_with_index do |tag, index|
+        = succeed (index < @post.tag_list.count - 1) ? " " : "" do
+          %a{:href => tag_path(tag), :class => "label"}>= tag
+  %hr.gradient-black
   .actions
     - if @post.published
       = link_to "#{post_path(@post)}#comments" do
@@ -25,7 +28,7 @@
       = link_to edit_post_path(@post), :class => "" do
         %i.icon-edit.icon
     - if can? :delete, @post
-      = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+      = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete-post" do
         %i.icon-trash.icon
   - if @post.published and action_name == "show"
     %hr.gradient-black
@@ -39,19 +42,11 @@
             = comment.body
             .actions
               - if can? :delete, comment
-                = link_to post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :class => "" do
+                = link_to post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete-comment" do
                   %i.icon-trash.icon
         %hr.gradient-black
       %h4 Leave a Comment
       = form_for([@post, @post.comments.build]) do |f|
-        - if @post.errors.any?
-          #error_explanation
-            %h5
-              = pluralize(@post.errors.count, "error")
-              prohibited this comment from being saved:
-            %ul
-              - @blog.errors.full_messages.each do |msg|
-                %li= msg
         .field
           = f.label :author_name, "Name"
           = f.text_field :author_name, :placeholder => "This field is required."

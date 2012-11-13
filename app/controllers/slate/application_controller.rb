@@ -5,6 +5,10 @@ module Slate
     before_filter :set_current_author
     before_filter :set_blog
 
+    before_filter do |controller|
+      @markdown_parser = MarkdownParser.new
+    end
+
     def set_current_author
       current_user ||= nil
     end
