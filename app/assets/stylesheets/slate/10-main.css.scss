@@ -1,6 +1,6 @@
 $content-width: 600px;
 $font-family-general: "Georgia", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$font-family-title: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+$font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
 .slate {
   [class^="icon-"],
@@ -99,7 +99,6 @@ $font-family-title: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed"
       color: white;
       font-family: $font-family-title;
       font-weight: 600;
-      font-stretch: condensed;
     }
     h2 a.title {
       margin: 5px 0 30px;
