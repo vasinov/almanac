@@ -4,10 +4,10 @@ $(document).ready ->
   background_blur = $("body").data("background-blur")
   logo = $("body").data("logo-image")
 
-  $("a.logo div").css("background-image", "url(" + if logo? then logo else "<%= asset_path('slate/background.jpg') %>" + ") top left no-repeat")
+  $("a.logo div").css("background-image", "url(" + (if logo? then logo else "<%= asset_path('slate/background.jpg') %>") + ")")
 
   if background_tile
-    $("body.slate").css("background-image", "url(" + if background? then background else "<%= asset_path('slate/background.jpg') %>" + ") repeat")
+    $("body.slate").css("background-image", "url(" + (if background? then background else "<%= asset_path('slate/background.jpg') %>") + ")")
   else
     image = new Image()
     options = { amount: background_blur }
