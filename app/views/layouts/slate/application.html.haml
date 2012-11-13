@@ -35,6 +35,7 @@
             %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/#{@blog.twitter}"}
               = "Follow @#{@blog.twitter}"
             = render :template => 'layouts/slate/_twitter_follow'
+          %hr.gradient-white
       - if alert
         .alert.alert-error.alert-block
           %a.close{"data-dismiss" => "alert"} ×
