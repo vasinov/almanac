@@ -105,10 +105,10 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
     h2, h2 a.title {
       display: block;
       font-size: 40px;
-      -webkit-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
-      -moz-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
-      -o-text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
-      text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+      -webkit-text-shadow: 0px 1px 4px rgba(0, 0, 0, 1);
+      -moz-text-shadow: 0px 1px 4px rgba(0, 0, 0, 1);
+      -o-text-shadow: 0px 1px 4px rgba(0, 0, 0, 1);
+      text-shadow: 0px 1px 4px rgba(0, 0, 0, 1);
       filter: progid:DXImageTransform.Microsoft.Shadow(direction=135,strength=2,color=424040);
       position: relative;
       color: white;
