@@ -3,7 +3,7 @@ class Slate::Blog < ActiveRecord::Base
 
   attr_accessible :title, :description, :author_id, :logo, :background, :retained_logo,
                   :retained_background, :google_analytics, :twitter, :rakismet_key,
-                  :rakismet_url
+                  :rakismet_url, :background_tile, :background_blur
 
   image_accessor :logo do
     after_assign{|a| a.process!(:thumb, '200x200#').encode(:png) }
@@ -17,6 +17,7 @@ class Slate::Blog < ActiveRecord::Base
 
   validates_presence_of :author_id
   validates_presence_of :title
+  validates_inclusion_of :background_blur, :in => [0, 1, 2]
 
   def author=
     @author = Slate.user_class.constantize.find(self.author_id)

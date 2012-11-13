@@ -3,9 +3,13 @@ $font-family-general: "Georgia", "Helvetica Neue Light", "Helvetica Neue", Helve
 $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
 .slate {
-  [class^="icon-"],
-  [class*=" icon-"] {
+  background-color: grey;
+  [class^="icon-"], [class*=" icon-"] {
     background-image: url("icons/glyphicons-halflings.png");
+  }
+
+  input[type="file"] {
+    margin-bottom: 10px;
   }
 
   .icon-white,
@@ -35,6 +39,9 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
   .well.post {
     p {
       margin: 0 0 28px;
+    }
+    p:last-child {
+      margin-bottom: 10px;
     }
   }
 
@@ -104,12 +111,13 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
       margin: 5px 0 30px;
     }
     h2 a.logo {
-      img {
+      div {
         width: 100px;
         height: 100px;
         border: 3px solid white;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
         margin-bottom: 10px;
+        display: inline-block;
       }
     }
 

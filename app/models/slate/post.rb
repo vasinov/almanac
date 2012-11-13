@@ -20,7 +20,7 @@ class Slate::Post < ActiveRecord::Base
 
   self.per_page = 10
 
-  default_scope order('written_at DESC')
+  default_scope order('written_at DESC, id DESC')
 
   def self.recent(params)
     self.where(:published => true).paginate(:page => posts_page(params), :per_page => posts_limit(params))
