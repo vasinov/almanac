@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary     = "The most elegant blog engine for Rails apps."
   s.description = "Slate is the most elegant mountable blog engine that can be easily hooked up in the existing Rails application."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.2.8"
