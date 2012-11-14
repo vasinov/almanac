@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "slate/version"
 
 Gem::Specification.new do |s|
-  s.name        = "slate"
+  s.name        = "slate_engine"
   s.version     = Slate::VERSION
   s.authors     = ["Vasily Vasinov"]
   s.email       = ["vasinov@me.com"]

@@ -18,7 +18,7 @@ Slate is the most elegant mountable blog engine that can be easily hooked up in 
 ## Installation
 ### 1. Add the gem to your `Gemfile`
 ```ruby
-gem "slate"
+gem "slate_engine"
 ```
 And run `bundle install`.
 

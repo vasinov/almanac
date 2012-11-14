@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slate (0.4.2)
+    slate_engine (0.4.3)
       acts-as-taggable-on (~> 2.3.1)
       bootstrap-rails-engine
       cancan
@@ -183,5 +183,5 @@ DEPENDENCIES
   factory_girl_rails
   faker
   rspec-rails
-  slate!
+  slate_engine!
   sqlite3
