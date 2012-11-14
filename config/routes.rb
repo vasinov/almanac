@@ -8,6 +8,7 @@ Almanac::Engine.routes.draw do
     end
   end
 
+  match "posts" => "posts#index"
   match ":id/edit" => "posts#edit", :as => "edit_post"
   match "new" => "posts#new", :as => "new_post"
   match ":id" => "posts#show", :as => "post", :via => :get
