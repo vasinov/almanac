@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106220325) do
+ActiveRecord::Schema.define(:version => 20121114032146) do
 
   create_table "slate_blogs", :force => true do |t|
     t.string   "title"
     t.integer  "author_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "background_uid"
     t.string   "logo_uid"
     t.text     "description"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(:version => 20121106220325) do
     t.string   "google_analytics"
     t.string   "rakismet_key"
     t.string   "rakismet_url"
+    t.boolean  "background_tile",  :default => false
+    t.integer  "background_blur",  :default => 0
+    t.text     "footer"
   end
 
   create_table "slate_comments", :force => true do |t|
@@ -54,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20121106220325) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.text     "excerpt"
+    t.date     "written_at"
   end
 
   create_table "taggings", :force => true do |t|
