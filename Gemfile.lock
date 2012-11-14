@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slate_engine (0.4.3)
+    almanac (0.4.3)
       acts-as-taggable-on (~> 2.3.1)
       bootstrap-rails-engine
       cancan
@@ -179,8 +179,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  almanac!
   factory_girl_rails
   faker
   rspec-rails
-  slate_engine!
   sqlite3

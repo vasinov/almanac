@@ -1,3 +1,4 @@
+# This migration comes from almanac (originally 20121112205256)
 class AddBackgroundFieldsToBlogs < ActiveRecord::Migration
   def up
     change_table :almanac_blogs do |t|

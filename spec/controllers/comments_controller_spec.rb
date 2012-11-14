@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Slate::CommentsController do
+describe Almanac::CommentsController do
   before :each do
     @post = create(:post)
   end
@@ -9,24 +9,24 @@ describe Slate::CommentsController do
     context "with valid attributes" do
       it "creates a new comment" do
         expect{
-          post :create, :use_route => :slate, comment: attributes_for(:comment), :post_id => @post.id
-        }.to change(Slate::Comment, :count).by(1)
+          post :create, :use_route => :almanac, comment: attributes_for(:comment), :post_id => @post.id
+        }.to change(Almanac::Comment, :count).by(1)
       end
 
       it "redirects to the post" do
-        post :create, :use_route => :slate, comment: attributes_for(:comment), :post_id => @post.id
+        post :create, :use_route => :almanac, comment: attributes_for(:comment), :post_id => @post.id
         response.should redirect_to @post
       end
     end
     context "with invalid attributes" do
       it "doesn't create a new comment" do
         expect{
-          post :create, :use_route => :slate, comment: attributes_for(:comment, :body => nil), :post_id => @post.id
-        }.to_not change(Slate::Comment, :count)
+          post :create, :use_route => :almanac, comment: attributes_for(:comment, :body => nil), :post_id => @post.id
+        }.to_not change(Almanac::Comment, :count)
       end
 
       it "redirects to the post" do
-        post :create, :use_route => :slate, comment: attributes_for(:comment), :post_id => @post.id
+        post :create, :use_route => :almanac, comment: attributes_for(:comment), :post_id => @post.id
         response.should redirect_to @post
       end
     end
@@ -39,12 +39,12 @@ describe Slate::CommentsController do
 
     it "deletes the comment" do
       expect{
-        delete :destroy, :use_route => :slate, id: @comment.id, :post_id => @post.id
-      }.to change(Slate::Comment, :count).by(-1)
+        delete :destroy, :use_route => :almanac, id: @comment.id, :post_id => @post.id
+      }.to change(Almanac::Comment, :count).by(-1)
     end
 
     it "redirects to the post" do
-      delete :destroy, :use_route => :slate, id: @comment.id, :post_id => @post.id
+      delete :destroy, :use_route => :almanac, id: @comment.id, :post_id => @post.id
       response.should redirect_to @post
     end
   end

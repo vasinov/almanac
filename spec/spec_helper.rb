@@ -26,7 +26,7 @@ RSpec.configure do |config|
   config.before type: :controller do
     user = create(:user)
     sign_in = sign_in user
-    Slate::ApplicationController.send(:define_method, :current_user) do
+    Almanac::ApplicationController.send(:define_method, :current_user) do
       user
     end
   end

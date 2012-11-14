@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Slate::Post do
+describe Almanac::Post do
   it "should be possible to create a valid post" do
     create(:post)
-    expect(Slate::Post.all.count).to eq(1)
+    expect(Almanac::Post.all.count).to eq(1)
   end
   it "should be possible to create a post draft without a title" do
     build(:post_draft, title: "").should be_valid
@@ -31,22 +31,22 @@ describe Slate::Post do
   end
   it "should be possible to publish more than one post" do
     create(:blog_with_posts, posts_count: 2)
-    expect(Slate::Post.all.count).to eq(2)
+    expect(Almanac::Post.all.count).to eq(2)
   end
 
   describe ".recent" do
     it "should return 10 recent posts" do
       # TODO: figure out why this doesn't work in the model, but works in paginated views
       #create(:blog_with_posts, posts_count: 12)
-      #expect(Slate::Post.recent({}).count).to eq(10)
+      #expect(Almanac::Post.recent({}).count).to eq(10)
     end
     it "should not include drafts" do
       posts_count = 4
       drafts_count = 3
       create(:blog_with_posts, posts_count: posts_count)
-      blog_id = Slate::Post.first.blog_id
+      blog_id = Almanac::Post.first.blog_id
       create_list(:post_draft, drafts_count, blog_id: blog_id)
-      expect(Slate::Post.recent({}).count).to eq posts_count
+      expect(Almanac::Post.recent({}).count).to eq posts_count
     end
   end
 
@@ -54,9 +54,9 @@ describe Slate::Post do
     it "should return only drafts" do
       drafts_count = 3
       create(:blog_with_posts, posts_count: 3)
-      blog_id = Slate::Post.first.blog_id
+      blog_id = Almanac::Post.first.blog_id
       create_list(:post_draft, drafts_count, blog_id: blog_id)
-      expect(Slate::Post.drafts({}).count).to eq drafts_count
+      expect(Almanac::Post.drafts({}).count).to eq drafts_count
     end
   end
 
@@ -64,16 +64,16 @@ describe Slate::Post do
     it "should return tagged posts" do
       posts_count = 10
       create(:blog_with_posts, posts_count: posts_count)
-      blog_id = Slate::Post.first.blog_id
+      blog_id = Almanac::Post.first.blog_id
       create_list(:post, 2, blog_id: blog_id, tag_list: "")
-      expect(Slate::Post.tagged({ :tag_name => "common" }).count).to eq posts_count
+      expect(Almanac::Post.tagged({ :tag_name => "common" }).count).to eq posts_count
     end
     it "should not return drafts" do
       posts_count = 10
       create(:blog_with_posts, posts_count: posts_count)
-      blog_id = Slate::Post.first.blog_id
+      blog_id = Almanac::Post.first.blog_id
       create_list(:post, 2, blog_id: blog_id, published: false)
-      expect(Slate::Post.tagged({ :tag_name => "common" }).count).to eq posts_count
+      expect(Almanac::Post.tagged({ :tag_name => "common" }).count).to eq posts_count
     end
   end
 end

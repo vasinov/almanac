@@ -7,7 +7,7 @@ FactoryGirl.define do
     password { Faker::Lorem.characters(10) }
   end
 
-  factory :post, :class => Slate::Post do
+  factory :post, :class => Almanac::Post do
     title { Faker::Lorem.sentence(3) }
     excerpt { Faker::Lorem.sentence(1) }
     body { Faker::Lorem.paragraph(5) }
@@ -33,7 +33,7 @@ FactoryGirl.define do
     association :blog, factory: :blog
   end
 
-  factory :comment, :class => Slate::Comment do
+  factory :comment, :class => Almanac::Comment do
     author_name { Faker::Name.name }
     author_email { Faker::Internet.safe_email }
     body { Faker::Lorem.paragraph(1) }
@@ -44,7 +44,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :blog, :class => Slate::Blog do
+  factory :blog, :class => Almanac::Blog do
     title { Faker::Lorem.sentence(2) }
     description { Faker::Lorem.paragraph(3) }
     author_id { generate(:author_id) }

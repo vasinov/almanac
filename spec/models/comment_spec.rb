@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Slate::Comment do
+describe Almanac::Comment do
   it "should be possible to create a valid comment" do
     create(:comment)
 
-    expect(Slate::Comment.all.count).to eq(1)
+    expect(Almanac::Comment.all.count).to eq(1)
   end
 
   it "should not be possible to create a comment without an author_name" do
@@ -29,7 +29,7 @@ describe Slate::Comment do
       spam_comments_count = 5
       post = create(:post_with_comments, comments_count: comments_count)
       create_list(:spam_comment, spam_comments_count, post_id: post.id)
-      expect(Slate::Comment.spam.count).to eq spam_comments_count
+      expect(Almanac::Comment.spam.count).to eq spam_comments_count
     end
   end
 end

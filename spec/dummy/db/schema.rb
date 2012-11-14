@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20121114032146) do
 
-  create_table "slate_blogs", :force => true do |t|
+  create_table "almanac_blogs", :force => true do |t|
     t.string   "title"
     t.integer  "author_id"
     t.datetime "created_at",                          :null => false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20121114032146) do
     t.text     "footer"
   end
 
-  create_table "slate_comments", :force => true do |t|
+  create_table "almanac_comments", :force => true do |t|
     t.text     "body"
     t.string   "author_email"
     t.string   "author_name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20121114032146) do
     t.boolean  "spam",         :default => false
   end
 
-  create_table "slate_images", :force => true do |t|
+  create_table "almanac_images", :force => true do |t|
     t.string   "image_uid"
     t.string   "thumb_uid"
     t.integer  "post_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20121114032146) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "slate_posts", :force => true do |t|
+  create_table "almanac_posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.boolean  "published",  :default => false

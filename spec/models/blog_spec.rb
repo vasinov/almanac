@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Slate::Blog do
+describe Almanac::Blog do
   it "should be possible to create a valid blog" do
-    expect(create(:blog)).to eq(Slate::Blog.first)
+    expect(create(:blog)).to eq(Almanac::Blog.first)
   end
 
   it "should not be possible to create a blog without a title" do

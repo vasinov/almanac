@@ -4,10 +4,10 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
 
-    can [:read, :show], [Slate::Post, Slate::Blog]
-    can :manage, Slate::Post
-    can :manage, Slate::Blog
-    can :manage, Slate::Comment
-    can :manage, Slate::Image
+    can [:read, :show], [Almanac::Post, Almanac::Blog]
+    can :manage, Almanac::Post
+    can :manage, Almanac::Blog
+    can :manage, Almanac::Comment
+    can :manage, Almanac::Image
   end
 end

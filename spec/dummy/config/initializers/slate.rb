@@ -1,1 +1,0 @@
-Slate.user_class = "User"

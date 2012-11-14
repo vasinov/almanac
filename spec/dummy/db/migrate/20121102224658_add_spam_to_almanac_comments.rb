@@ -1,3 +1,4 @@
+# This migration comes from almanac (originally 20121102185130)
 class AddSpamToComments < ActiveRecord::Migration
   def up
     change_table :almanac_comments do |t|

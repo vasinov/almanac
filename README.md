@@ -1,5 +1,5 @@
-# Slate
-Slate is the most elegant mountable blog engine that can be easily hooked up in the existing Rails application.
+# Almanac
+Almanac is the most elegant mountable blog engine that can be easily hooked up in the existing Rails application.
 
 ## Main Features
 - Slick default design that can be easily customized.
@@ -18,24 +18,24 @@ Slate is the most elegant mountable blog engine that can be easily hooked up in 
 ## Installation
 ### 1. Add the gem to your `Gemfile`
 ```ruby
-gem "slate_engine"
+gem "almanac"
 ```
 And run `bundle install`.
 
 ### 2. Setup Routes
-To hook up Slate routes to your current Rails app simply put this code in your `config/routes.rd` file
+To hook up Almanac routes to your current Rails app simply put this code in your `config/routes.rd` file
 
 ```ruby
-mount Slate::Engine, :at => '/blog'
+mount Almanac::Engine, :at => '/blog'
 ```
 
-You can obviously setup any route you want. E.g. `/posts` or `/slate`.
+You can obviously setup any route you want. E.g. `/posts` or `/almanac`.
 
-### 3. Run Slate Migrations
-First off, install Slate migrations:
+### 3. Run Almanac Migrations
+First off, install Almanac migrations:
 
 ```ruby
-bundle exec rake slate:install:migrations
+bundle exec rake almanac:install:migrations
 ```
 
 Then migrate your database:
@@ -45,32 +45,32 @@ bundle exec rake db:migrate
 ```
 
 ### 4. Devise and CanCan Setup
-Slate relies on Devise and CanCan properly configured in your app. In short, the `current_user` variable and CanCan `ability.rb` file has to exist. You can setup permissions for the following Slate models:
+Almanac relies on Devise and CanCan properly configured in your app. In short, the `current_user` variable and CanCan `ability.rb` file has to exist. You can setup permissions for the following Almanac models:
 
 ```ruby
-can :manage, Slate::Post
-can :manage, Slate::Blog
-can :manage, Slate::Comment
-can :manage, Slate::Image
+can :manage, Almanac::Post
+can :manage, Almanac::Blog
+can :manage, Almanac::Comment
+can :manage, Almanac::Image
 ```
 
-These particular rules will allow the specified user to do anything with any Slate record in the database.
+These particular rules will allow the specified user to do anything with any Almanac record in the database.
 
 ### 5. Specify User Class Name
-Lastly, you'll have to specify the name of your user model. Create a `config/initializers/slate.rb` file and add the following line there:
+Lastly, you'll have to specify the name of your user model. Create a `config/initializers/almanac.rb` file and add the following line there:
 
 ```ruby
-Slate.user_class = "User" # other possibilities: "Author", "Writer", etc.
+Almanac.user_class = "User" # other possibilities: "Author", "Writer", etc.
 ```
 
 ## Testing
-Slate's models and controllers are tested with RSpec and FactoryGirl. Rails engines, such as Slate, are normally tested with a dummy app that is located inside the 'spec' folder. Migrate your test database from the `spec/dummy` directory:
+Almanac's models and controllers are tested with RSpec and FactoryGirl. Rails engines, such as Almanac, are normally tested with a dummy app that is located inside the 'spec' folder. Migrate your test database from the `spec/dummy` directory:
 
 ```ruby
 rake db:migrate RAILS_ENV=test
 ```
 
-Go back to the `slate` directory and run `rspec spec`.
+Go back to the `almanac` directory and run `rspec spec`.
 
 ## Contribute
 Fork the repo, do work, test it, pull request.

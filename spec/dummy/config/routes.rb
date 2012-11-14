@@ -10,5 +10,5 @@ Rails.application.routes.draw do
                                                    :sign_up => ''
   }
 
-  mount Slate::Engine => "/slate"
+  mount Almanac::Engine => "/almanac"
 end

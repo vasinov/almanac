@@ -1,3 +1,4 @@
+# This migration comes from almanac (originally 20121102181941)
 class AddRakismetFieldsToBlogs < ActiveRecord::Migration
   def up
     change_table :almanac_blogs do |t|

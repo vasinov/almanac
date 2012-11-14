@@ -1,0 +1,52 @@
+!!! 5
+%html
+  %head
+    %title
+      = (@blog) ? ((@blog.title) ? @blog.title : "Almanac Blog") : "Almanac Blog"
+    = auto_discovery_link_tag(:rss, "#{root_path}posts.rss")
+    = stylesheet_link_tag    "almanac/application", :media => "all"
+    = javascript_include_tag "almanac/application"
+    = csrf_meta_tags
+  %body.almanac{ "data-logo-image" => (@blog) ? ((@blog.logo) ? @blog.logo.url : nil) : nil,
+               "data-background-image" => (@blog) ? ((@blog.background) ? @blog.background.url : nil) : nil,
+               "data-background-tile" => (@blog) ? ((@blog.background_tile) ? "true" : "false") : "true",
+               "data-background-blur" => (@blog) ? ((@blog.background_blur) ? @blog.background_blur : 0) : 0 }
+    .container
+      .page-header#header
+        %h2
+          - if @blog.nil?
+            = "Your Blog Doesn't Exist Yet"
+          - else
+            = link_to(:root, :class => "logo") do
+              .img-circle
+            = link_to(:root, :class => "title") do
+              = @blog.title
+        - unless @blog.nil? or  @blog.id.nil?
+          #top-controls
+            - unless cannot? :create, Almanac::Post
+              = link_to(new_post_path) do
+                %img{ :src => asset_path('almanac/icons/compose.png') }
+            - unless cannot? :manage, @blog
+              = link_to(edit_blog_path(@blog)) do
+                %img{ :src => asset_path('almanac/icons/gear.png') }
+            = link_to("#{root_path}posts.rss") do
+              %img{ :src => asset_path('almanac/icons/feed.png') }
+          - unless @blog.twitter.empty?
+            %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/#{@blog.twitter}"}
+              = "Follow @#{@blog.twitter}"
+            = render :template => 'layouts/almanac/_twitter_follow'
+          %hr.gradient-white
+      - if alert
+        .alert.alert-error.alert-block
+          %a.close{"data-dismiss" => "alert"} ×
+          = alert
+      - if notice
+        .alert.alert-info.alert-block
+          %a.close{"data-dismiss" => "alert"} ×
+          = notice
+      = yield
+      %hr.gradient-white
+      .footer
+        = (@blog) ? ((@blog.footer) ? @markdown_parser.markdown_to_html(@blog.footer).html_safe : "&copy; #{Date.today.year}".html_safe) : nil
+    - unless @blog.nil? or  @blog.google_analytics.nil? or @blog.google_analytics.empty?
+      = render :template => 'layouts/almanac/_ga'
