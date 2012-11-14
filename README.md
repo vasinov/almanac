@@ -56,7 +56,14 @@ can :manage, Almanac::Image
 
 These particular rules will allow the specified user to do anything with any Almanac record in the database.
 
-### 5. Specify User Class Name
+### 5. Dragonfly Setup
+Almanac relies on the Dragonfly gem for file uploads. Configure Dragonfly in your app by adding the following line to `config/initializers/dragonfly.rb`:
+
+```ruby
+require 'dragonfly/rails/images'
+```
+
+### 6. Specify User Class Name
 Lastly, you'll have to specify the name of your user model. Create a `config/initializers/almanac.rb` file and add the following line there:
 
 ```ruby
