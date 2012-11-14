@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = Slate::VERSION
   s.authors     = ["Vasily Vasinov"]
   s.email       = ["vasinov@me.com"]
-  s.homepage    = "http://www.vasinov.com"
+  s.homepage    = "https://github.com/vasinov/slate"
   s.summary     = "The most elegant blog engine for Rails apps."
   s.description = "Slate is the most elegant mountable blog engine that can be easily hooked up in the existing Rails application."
 
