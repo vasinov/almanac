@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114032146) do
+ActiveRecord::Schema.define(:version => 20121114185269) do
 
   create_table "almanac_blogs", :force => true do |t|
     t.string   "title"
     t.integer  "author_id"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "background_uid"
     t.string   "logo_uid"
     t.text     "description"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20121114032146) do
     t.string   "google_analytics"
     t.string   "rakismet_key"
     t.string   "rakismet_url"
-    t.boolean  "background_tile",  :default => false
+    t.boolean  "background_tile",  :default => true
     t.integer  "background_blur",  :default => 0
     t.text     "footer"
   end
