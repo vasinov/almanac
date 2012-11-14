@@ -9,7 +9,6 @@ PATH
       database_cleaner
       devise
       dragonfly
-      factory_girl_rails
       haml
       haml-rails
       jquery-rails
