@@ -1,5 +1,7 @@
-Slate::Engine.routes.draw do
+Almanac::Engine.routes.draw do
   root :to => "posts#index"
+
+  match "new_blog" => "blogs#new", :as => "new_blog"
   resources :blogs do
     member do
       get "spam" => "blogs#spam"
