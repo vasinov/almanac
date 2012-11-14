@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slate (0.4.1)
+    slate (0.4.2)
       acts-as-taggable-on (~> 2.3.1)
       cancan
       coffee-rails

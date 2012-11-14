@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Vasily Vasinov"]
   s.email       = ["vasinov@me.com"]
   s.homepage    = "http://www.vasinov.com"
-  s.summary     = "The most elegant blog engine written in Rails."
-  s.description = "TODO: Description of Slate."
+  s.summary     = "The most elegant blog engine for Rails apps."
+  s.description = "Slate is the most elegant mountable blog engine that can be easily hooked up in the existing Rails application."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
