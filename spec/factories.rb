@@ -9,6 +9,7 @@ FactoryGirl.define do
 
   factory :post, :class => Almanac::Post do
     title { Faker::Lorem.sentence(3) }
+    slug { "#{Faker::Lorem.word(1)}-#{Faker::Lorem.word(1)}-#{Faker::Lorem.word(1)}-#{Faker::Lorem.word(1)}" }
     excerpt { Faker::Lorem.sentence(1) }
     body { Faker::Lorem.paragraph(5) }
     published true

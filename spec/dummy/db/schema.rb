@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114185269) do
+ActiveRecord::Schema.define(:version => 20121116195111) do
 
   create_table "almanac_blogs", :force => true do |t|
     t.string   "title"
@@ -58,7 +58,10 @@ ActiveRecord::Schema.define(:version => 20121114185269) do
     t.datetime "updated_at",                    :null => false
     t.text     "excerpt"
     t.date     "written_at"
+    t.string   "slug"
   end
+
+  add_index "almanac_posts", ["slug"], :name => "index_almanac_posts_on_slug", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
