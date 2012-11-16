@@ -44,3 +44,10 @@ $(document).ready ->
     comment.fadeOut()
 
   $('.datepicker').datepicker({ format: 'yyyy-mm-dd' })
+
+  $("#post_title").change (e) ->
+    $("#post_slug").val($(this).val().convertToSlug())
+
+unless String::convertToSlug?
+  String::convertToSlug = ->
+    @toLowerCase().replace(/[^\w ]+/g, "").replace RegExp(" +", "g"), "-"
