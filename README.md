@@ -35,13 +35,13 @@ You can obviously setup any route you want. E.g. `/posts` or `/almanac`.
 First off, install Almanac migrations:
 
 ```ruby
-bundle exec rake almanac:install:migrations
+rake almanac:install:migrations
 ```
 
 Then migrate your database:
 
 ```ruby
-bundle exec rake db:migrate
+rake db:migrate
 ```
 
 ### 4. Devise and CanCan Setup
