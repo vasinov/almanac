@@ -1,0 +1,4 @@
+- unless @post.nil?
+  %h3.head
+    = @post.created_at.strftime("%B %d, %Y")
+  = render "post"

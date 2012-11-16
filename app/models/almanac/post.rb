@@ -11,7 +11,7 @@ class Almanac::Post < ActiveRecord::Base
   validates_presence_of :author_id
   validates_presence_of :title, :if => lambda {|_| _.published }
   validates_presence_of :slug, :if => lambda {|_| _.published }
-  validates_uniqueness_of :slug, :if => lambda {|_| _.published}
+  validates_uniqueness_of :slug
   validates_presence_of :body, :if => lambda {|_| _.published }
 
   before_save :author=
