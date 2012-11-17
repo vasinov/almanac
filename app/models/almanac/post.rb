@@ -16,6 +16,7 @@ class Almanac::Post < ActiveRecord::Base
 
   before_save :author=
   after_initialize :set_written_at
+  after_initialize :check_slug
 
   acts_as_taggable
 
@@ -48,6 +49,13 @@ class Almanac::Post < ActiveRecord::Base
   private
   def set_written_at
     self.written_at ||= Date.today if new_record?
+  end
+
+  private
+  def check_slug
+    if self.published
+      self.slug ||= self.id
+    end
   end
 
   def author=
