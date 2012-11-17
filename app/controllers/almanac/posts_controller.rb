@@ -42,6 +42,11 @@ module Almanac
 
     def show
       @post = Post.find_by_slug(params[:slug])
+      if @post.nil? and not params[:slug].empty?
+        redirect_to edit_post_path(params[:slug]), :notice => "Your post has to have a slug."
+        return
+      end
+
       if @post.published
         @comments = @post.comments.where(:spam => false)
       end
