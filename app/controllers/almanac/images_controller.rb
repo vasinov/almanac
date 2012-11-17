@@ -21,7 +21,7 @@ module Almanac
         if @image.save
           format.html { redirect_to edit_post_path(@image.post), :notice => 'Image was successfully created.' }
         else
-          format.html { render :action => :back, :alert => 'Something went wrong, try again.' }
+          format.html { redirect_to :back, :alert => 'Something went wrong, try again.' }
         end
       end
     end

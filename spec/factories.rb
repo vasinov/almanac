@@ -1,5 +1,6 @@
 FactoryGirl.define do
   sequence(:tag_list) {|n| "common,test#{n},rspec#{n},ruby#{n},#rails#{n}" }
+  sequence(:slug) {|n| "#{Faker::Lorem.word}-#{Faker::Lorem.word}-#{n}" }
   sequence(:author_id)
 
   factory :user, :class => User do
@@ -9,6 +10,7 @@ FactoryGirl.define do
 
   factory :post, :class => Almanac::Post do
     title { Faker::Lorem.sentence(3) }
+    slug { generate(:slug) }
     excerpt { Faker::Lorem.sentence(1) }
     body { Faker::Lorem.paragraph(5) }
     published true

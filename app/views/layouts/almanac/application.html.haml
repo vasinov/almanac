@@ -29,7 +29,7 @@
             - unless cannot? :manage, @blog
               = link_to(edit_blog_path(@blog)) do
                 %img{ :src => asset_path('almanac/icons/gear.png') }
-            = link_to("#{root_path}posts.rss") do
+            = link_to("#{root_path}feed.rss") do
               %img{ :src => asset_path('almanac/icons/feed.png') }
           - unless @blog.twitter.empty?
             %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/#{@blog.twitter}"}
@@ -47,6 +47,7 @@
       = yield
       %hr.gradient-white
       .footer
-        = (@blog) ? ((@blog.footer) ? @markdown_parser.markdown_to_html(@blog.footer).html_safe : "&copy; #{Date.today.year}".html_safe) : nil
+        - if @blog
+          = (@blog.footer.empty?) ? "&copy; #{Date.today.year}".html_safe : @markdown_parser.markdown_to_html(@blog.footer).html_safe
     - unless @blog.nil? or  @blog.google_analytics.nil? or @blog.google_analytics.empty?
       = render :template => 'layouts/almanac/_ga'

@@ -37,6 +37,9 @@
           = f.label :written_at, "Timestamp"
           = f.text_field :written_at, :class => "datepicker"
     .field
+      = f.label :slug, "Post Slug"
+      = f.text_field :slug, :placeholder => "Auto-filled"
+    .field
       = f.label :excerpt, "Excerpt"
       = f.text_area :excerpt, :placeholder => "This is where you can put a summary of your post. You can use Markdown here. It's not required.", :rows => 2
     .field

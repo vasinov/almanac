@@ -4,13 +4,8 @@ module Almanac
   class PostsController < ApplicationController
     load_and_authorize_resource class: Almanac::Post
     respond_to :html
-    before_filter :only => [:show, :edit, :update, :delete] do |controller|
+    before_filter :only => [:edit, :update, :delete] do |controller|
       @post = Post.find(params[:id])
-    end
-    before_filter :only => [:show] do |controller|
-      if @post.published
-        @comments = @post.comments.where(:spam => false)
-      end
     end
 
     def index
@@ -46,6 +41,19 @@ module Almanac
     end
 
     def show
+      @post = Post.find_by_slug(params[:slug])
+      if @post.published
+        @comments = @post.comments.where(:spam => false)
+      end
+
+      respond_with(@post) do |format|
+        format.html
+      end
+    end
+
+    def draft
+      @post = Post.find(params[:id])
+
       respond_with(@post) do |format|
         format.html
       end
