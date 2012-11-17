@@ -47,6 +47,7 @@
       = yield
       %hr.gradient-white
       .footer
-        = (@blog) ? ((@blog.footer) ? @markdown_parser.markdown_to_html(@blog.footer).html_safe : "&copy; #{Date.today.year}".html_safe) : nil
+        - if @blog
+          = (@blog.footer.empty?) ? "&copy; #{Date.today.year}".html_safe : @markdown_parser.markdown_to_html(@blog.footer).html_safe
     - unless @blog.nil? or  @blog.google_analytics.nil? or @blog.google_analytics.empty?
       = render :template => 'layouts/almanac/_ga'
