@@ -8,6 +8,9 @@ describe Almanac::Post do
   it "should be possible to create a post draft without a title" do
     build(:post_draft, title: "").should be_valid
   end
+  it "should be possible to create a post draft without a slug" do
+    build(:post_draft, slug: "").should be_valid
+  end
   it "should be possible to create a post draft without a body" do
     build(:post_draft, body: "").should be_valid
   end
@@ -16,6 +19,9 @@ describe Almanac::Post do
   end
   it "should not be possible to publish a post without a title" do
     build(:post, title: "").should_not be_valid
+  end
+  it "should not be possible to publish a post without a title" do
+    build(:post, slug: "").should_not be_valid
   end
   it "should not be possible to publish a post without a body" do
     build(:post, body: "").should_not be_valid

@@ -4,14 +4,15 @@ class Almanac::Post < ActiveRecord::Base
   has_many :images, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
-  attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list, :written_at
+  attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list, :written_at, :slug
 
   validates_presence_of :blog_id
   validates_presence_of :written_at
   validates_presence_of :author_id
   validates_presence_of :title, :if => lambda {|_| _.published }
+  validates_presence_of :slug, :if => lambda {|_| _.published }
+  validates_uniqueness_of :slug
   validates_presence_of :body, :if => lambda {|_| _.published }
-
 
   before_save :author=
   after_initialize :set_written_at
