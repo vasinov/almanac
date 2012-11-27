@@ -41,10 +41,10 @@
       = f.text_field :slug, :placeholder => "Auto-filled"
     .field
       = f.label :excerpt, "Excerpt"
-      = f.text_area :excerpt, :placeholder => "This is where you can put a summary of your post. You can use Markdown here. It's not required.", :rows => 2
+      = f.text_area :excerpt, :placeholder => "This is where the summary of your post goes. Markdown can be used in this non-required field.", :rows => 2
     .field
       = f.label :body, "Main Content"
-      = f.text_area :body, :placeholder => "This is where your post goes. You can use markdown here."
+      = f.text_area :body, :placeholder => "This is where your post goes. Markdown can be used in this field."
     .field
       = f.label :tag_list, "Tags"
       = f.text_field :tag_list, :placeholder => "Comma-separated tags."
