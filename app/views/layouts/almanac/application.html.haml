@@ -7,6 +7,7 @@
     = stylesheet_link_tag    "almanac/application", :media => "all"
     = javascript_include_tag "almanac/application"
     = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
   %body.almanac{ "data-logo-image" => (@blog) ? ((@blog.logo) ? @blog.logo.url : nil) : nil,
                "data-background-image" => (@blog) ? ((@blog.background) ? @blog.background.url : nil) : nil,
                "data-background-tile" => (@blog) ? ((@blog.background_tile) ? "true" : "false") : "true",
