@@ -1,5 +1,5 @@
 # Almanac
-Almanac is the most elegant mountable blog engine that can be easily hooked up in the existing Rails application.
+Almanac is the most elegant mountable blog engine that can be easily hooked up in the existing Rails application. You can read more about it in [this blog post](http://www.vasinov.com/blog/beautifully-simple-blogging).
 
 ## Main Features
 - Slick default design that can be easily customized.
