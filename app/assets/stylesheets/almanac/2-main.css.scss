@@ -49,6 +49,9 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
   }
 
   .well.post {
+    img {
+      border: 1px solid grey;
+    }
     p {
       margin: 0 0 28px;
     }
