@@ -70,6 +70,11 @@ Lastly, you'll have to specify the name of your user model. Create a `config/ini
 Almanac.user_class = "User" # other possibilities: "Author", "Writer", etc.
 ```
 
+## Extending
+Almanac is a mountable Rails engine, which means that all of its controllers, views and models can be rewritten in your main application. E.g. if you want to change the main layout view, create a `app/views/layouts/almanac/application.html.haml` file in your project directory that will be used automatically by Rails instead of the default Almanac layout.
+
+This applies to all other views, models and controllers. Basically, add an `almanac` folder to any abstraction that you are willing to change and replace almanac files with your own.
+
 ## Testing
 Almanac's models and controllers are tested with RSpec and FactoryGirl. Rails engines, such as Almanac, are normally tested with a dummy app that is located inside the 'spec' folder. Migrate your test database from the `spec/dummy` directory:
 
@@ -80,4 +85,8 @@ rake db:migrate RAILS_ENV=test
 Go back to the `almanac` directory and run `rspec spec`.
 
 ## Contribute
-Fork the repo, do work, test it, pull request.
+- Fork the project.
+- Write code for a feature or bug fix.
+- Add Rspec tests for it.
+- Commit, do not make changes to rakefile or version.
+- Submit a pull request.
