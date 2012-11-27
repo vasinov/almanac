@@ -1,12 +1,11 @@
 PATH
   remote: .
   specs:
-    almanac (0.5.2)
+    almanac (0.5.3)
       acts-as-taggable-on (~> 2.3.1)
       bootstrap-rails-engine
       cancan
       coffee-rails
-      database_cleaner
       devise
       dragonfly
       haml
@@ -179,6 +178,7 @@ PLATFORMS
 
 DEPENDENCIES
   almanac!
+  database_cleaner
   factory_girl_rails
   faker
   rspec-rails
