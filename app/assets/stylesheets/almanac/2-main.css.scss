@@ -12,6 +12,11 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
     margin-bottom: 10px;
   }
 
+  li, ol {
+    margin-bottom: 14px;
+    line-height: 28px;
+  }
+
   .icon-white,
   .nav-tabs > .active > a > [class^="icon-"],
   .nav-tabs > .active > a > [class*=" icon-"],
@@ -44,6 +49,9 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
   }
 
   .well.post {
+    img {
+      border: 1px solid grey;
+    }
     p {
       margin: 0 0 28px;
     }
