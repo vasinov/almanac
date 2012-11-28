@@ -16,11 +16,11 @@ module Almanac
 
         if @comment.save
           format.html {
-            redirect_to post_path(@comment.post),
+            redirect_to post_path(@post.slug),
                         :notice => (@comment.spam) ? "Your comment looks like spam, it won't be published." : "Comment was successfully posted."
           }
         else
-          format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
+          format.html { redirect_to post_path(@post.slug), :alert => 'Something went wrong, try again.' }
         end
       end
     end
