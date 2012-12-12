@@ -6,7 +6,7 @@ module Almanac
     before_filter :set_blog
 
     before_filter do |controller|
-      @markdown_parser = MarkdownParser.new
+      @kramdown_parser = KramdownParser.new
     end
 
     def set_current_author

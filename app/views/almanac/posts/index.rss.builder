@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
     for post in @posts
       xml.item do
         xml.title post.title
-        xml.description @markdown_parser.markdown_to_html(post.body).html_safe
+        xml.description @kramdown_parser.kramdown_to_html(post.body).html_safe
         xml.pubDate post.written_at.to_s(:rfc822)
         xml.link post_url(post)
         xml.guid post_url(post)

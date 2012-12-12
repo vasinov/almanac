@@ -48,6 +48,9 @@ $(document).ready ->
   $("#post_title").change (e) ->
     $("#post_slug").val($(this).val().convertToSlug())
 
+  $("pre").addClass("prettyprint").addClass("linenums")
+  prettyPrint()
+
 unless String::convertToSlug?
   String::convertToSlug = ->
     @toLowerCase().replace(/[^\w ]+/g, "").replace RegExp(" +", "g"), "-"
