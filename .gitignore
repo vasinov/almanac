@@ -1,6 +1,7 @@
 .bundle/
 .idea/
 .DS_Store
+*.gem
 log/*.log
 pkg/
 spec/dummy/db/*.sqlite3
