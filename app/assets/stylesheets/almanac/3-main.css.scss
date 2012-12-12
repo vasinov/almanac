@@ -19,6 +19,9 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
   ol.linenums li {
     margin-bottom: 0;
   }
+  pre ol li code {
+    font-size: inherit;
+  }
 
   .icon-white,
   .nav-tabs > .active > a > [class^="icon-"],
