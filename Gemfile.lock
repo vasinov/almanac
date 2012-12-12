@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    almanac (0.7.0)
+    almanac (0.7.1)
       acts-as-taggable-on (~> 2.3.1)
       bootstrap-rails-engine
       cancan
