@@ -8,11 +8,11 @@ class MarkdownParser
     record.send("#{@attribute}=", markdown)
   end
 
-  def html_to_markdown(text)
+  def html_to_kramdown(text)
     Kramdown::Document.new(text.html_safe, :input => 'html').to_kramdown
   end
 
-  def markdown_to_html(text)
+  def kramdown_to_html(text)
     Kramdown::Document.new(text.html_safe, :input => 'kramdown').to_html
   end
 end
