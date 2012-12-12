@@ -3,12 +3,12 @@
     = link_to (@post.title.nil? or @post.title.empty?) ? "No Title" : @post.title, (@post.published) ? post_path(@post.slug) : draft_path(@post.id)
   - if (action_name == "index" or action_name == "tag") and !(@post.excerpt.nil? or @post.excerpt.empty?)
     .content
-      = @markdown_parser.kramdown_to_html(@post.excerpt).html_safe
+      = @kramdown_parser.kramdown_to_html(@post.excerpt).html_safe
       %p
         = link_to "Continue reading...", (@post.published) ? post_path(@post.slug) : draft_path(@post.id)
   - else
     .content
-      = @markdown_parser.kramdown_to_html(@post.body).html_safe if !(@post.body.nil? or @post.body.empty?)
+      = @kramdown_parser.kramdown_to_html(@post.body).html_safe if !(@post.body.nil? or @post.body.empty?)
   - unless @post.tag_list.empty?
     %div.tags
       - @post.tag_list.each_with_index do |tag, index|

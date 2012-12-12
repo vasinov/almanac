@@ -1,4 +1,4 @@
-class MarkdownParser
+class KramdownParser
   def initialize(*args)
     @attribute = *args[0]
   end
