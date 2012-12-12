@@ -48,6 +48,8 @@ $(document).ready ->
   $("#post_title").change (e) ->
     $("#post_slug").val($(this).val().convertToSlug())
 
+  prettyPrint()
+
 unless String::convertToSlug?
   String::convertToSlug = ->
     @toLowerCase().replace(/[^\w ]+/g, "").replace RegExp(" +", "g"), "-"

@@ -16,6 +16,9 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
     margin-bottom: 14px;
     line-height: 28px;
   }
+  ol.linenums li {
+    margin-bottom: 0;
+  }
 
   .icon-white,
   .nav-tabs > .active > a > [class^="icon-"],
