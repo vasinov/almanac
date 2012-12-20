@@ -3,7 +3,7 @@ Almanac is the most elegant mountable blog engine that can be easily hooked up i
 
 ## Main Features
 - Slick default design that can be easily customized.
-- Markdown for everything.
+- kramdown (better Markdown) for all input fields.
 - Drafts that make sense.
 - Easy Google Analytics support.
 - Akismet support for spam filtering in comments.
@@ -69,6 +69,18 @@ Lastly, you'll have to specify the name of your user model. Create a `config/ini
 ```ruby
 Almanac.user_class = "User" # other possibilities: "Author", "Writer", etc.
 ```
+
+## Kramdown
+[Kramdown](http://kramdown.rubyforge.org/index.html) is the superset of Markdown. All input fields can use it. Check out all [syntax rules](http://kramdown.rubyforge.org/syntax.html) for kramdown. One of the best examples of kramdown usage is code highlighting that is part of Almanac. In your post you can simply write:
+
+```
+~~~ruby
+def foo
+  puts "bar"
+end
+```
+
+And it will generate a nice looking block of Ruby code once your post is published.
 
 ## Extending
 Almanac is a mountable Rails engine, which means that all of its controllers, views and models can be rewritten in your main application. E.g. if you want to change the main layout view, create a `app/views/layouts/almanac/application.html.haml` file in your project directory that will be used automatically by Rails instead of the default Almanac layout.
