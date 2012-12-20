@@ -2,7 +2,7 @@
 %html
   %head
     %title
-      = (@blog) ? ((@blog.title) ? @blog.title : "Almanac Blog") : "Almanac Blog"
+      = (@blog) ? ((@blog.title) ? ((@post and @post.published) ? "#{@post.title} - #{@blog.title}" : @blog.title) : "Almanac Blog") : "Almanac Blog"
     = auto_discovery_link_tag(:rss, "#{root_path}posts.rss")
     = stylesheet_link_tag    "almanac/application", :media => "all"
     = javascript_include_tag "almanac/application"
