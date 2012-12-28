@@ -2,16 +2,20 @@ Almanac::Engine.routes.draw do
   root :to => "posts#index"
 
   match "new_blog" => "blogs#new", :as => "new_blog"
-  match "edit_blog/:id" => "blogs#edit", :as => "edit_blog"
-  resources :blogs do
-    member do
-      get "spam" => "blogs#spam"
+  match "edit_blog" => "blogs#edit", :as => "edit_blog"
+
+  resources :blogs
+
+  resources :comments do
+    collection do
+      get "spam" => "comments#spam"
     end
   end
 
-  match "feed" => "posts#index", :format => "rss"
+  match "posts.rss" => "posts#index", :format => "rss"
+  match "feed.rss" => "posts#index", :format => "rss"
   match ":id/edit" => "posts#edit", :as => "edit_post"
-  match "new" => "posts#new", :as => "new_post"
+  match "new_post" => "posts#new", :as => "new_post"
   match "drafts/:id" => "posts#draft", :as => "draft", :via => :get
   match ":slug" => "posts#show", :as => "post", :via => :get
   match "posts" => "posts#create", :as => "posts", :via => :post

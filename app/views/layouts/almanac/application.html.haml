@@ -28,7 +28,7 @@
               = link_to(new_post_path) do
                 %img{ :src => asset_path('almanac/icons/compose.png') }
             - unless cannot? :manage, @blog
-              = link_to(edit_blog_path(@blog)) do
+              = link_to(edit_blog_path) do
                 %img{ :src => asset_path('almanac/icons/gear.png') }
             = link_to("#{root_path}feed.rss") do
               %img{ :src => asset_path('almanac/icons/feed.png') }
