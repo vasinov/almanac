@@ -37,5 +37,13 @@ module Almanac
         end
       end
     end
+
+    def spam
+      @blog = Blog.first
+      @comments = Comment.spam
+
+      respond_with(@comments) do |format|
+      end
+    end
   end
 end

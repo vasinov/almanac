@@ -61,20 +61,4 @@ describe Almanac::BlogsController do
       end
     end
   end
-
-  describe "GET spam" do
-    before :each do
-      @blog = create(:blog)
-      post = create(:post_with_comments, comments_count: 10, blog_id: @blog.id)
-      @spam_comments = create_list(:spam_comment, 5, post_id: post.id)
-    end
-    it "returns spam comments" do
-      get :spam, :use_route => :almanac, id: @blog.id
-      assigns(:comments).should eq(@spam_comments)
-    end
-    it "renders the spam page" do
-      get :spam, :use_route => :almanac, id: @blog.id
-      response.should render_template :spam
-    end
-  end
 end

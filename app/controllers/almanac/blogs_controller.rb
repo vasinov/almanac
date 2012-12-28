@@ -5,7 +5,7 @@ module Almanac
     load_and_authorize_resource class: Almanac::Blog
     respond_to :html
 
-    before_filter :only => [:show, :edit, :update, :delete] do |controller|
+    before_filter :only => [:show, :update, :delete] do |controller|
       @blog = Blog.find(params[:id])
     end
 
@@ -39,6 +39,8 @@ module Almanac
     end
 
     def edit
+      @blog = Blog.first
+
       respond_to do |format|
         format.html
       end
@@ -51,13 +53,6 @@ module Almanac
         else
           format.html { render :action => "edit" }
         end
-      end
-    end
-
-    def spam
-      @comments = Comment.spam
-
-      respond_with(@comments) do |format|
       end
     end
   end
