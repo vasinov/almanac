@@ -55,7 +55,7 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
   }
 
   .well.post {
-    img {
+    img.bordered {
       border: 1px solid grey;
     }
     p {
@@ -96,6 +96,9 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
         p {
           a.add-photo {
             font-size: 0.8em;
+          }
+          a.delete-image {
+            line-height: 27px;
           }
         }
       }

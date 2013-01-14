@@ -31,18 +31,15 @@ $(document).ready ->
     e.preventDefault()
     $("#post_body").val($("#post_body").val() + "\n\n![](" + $(this).data("image") + ")\n\n")
 
+  $(".delete-image").bind ("ajax:success"), ->
+    image = $(this).parent().parent()
+    image.fadeOut()
+
   $(".delete-post").bind ("ajax:success"), ->
     post = $(this).parent().parent()
     if post.prev().attr('class') is "head" and post.next().attr('class') is "head"
       post.prev().fadeOut()
     post.fadeOut()
-
-  $(".delete-comment").bind ("ajax:success"), ->
-    comment = $(this).parent().parent()
-    if comment.prev().prop("tagName") is "H4" and comment.next().prop("tagName") is "HR"
-      comment.prev().fadeOut()
-      comment.next().fadeOut()
-    comment.fadeOut()
 
   $('.datepicker').datepicker({ format: 'yyyy-mm-dd' })
 
@@ -52,11 +49,12 @@ $(document).ready ->
   $("pre").addClass("prettyprint")
   prettyPrint()
 
-  dsq = document.createElement("script")
-  dsq.type = "text/javascript"
-  dsq.async = true
-  dsq.src = "http://" + disqus_shortname + ".disqus.com/embed.js"
-  (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
+  if disqus_shortname and $("#disqus_thread").length != 0
+    dsq = document.createElement("script")
+    dsq.type = "text/javascript"
+    dsq.async = true
+    dsq.src = "http://" + disqus_shortname + ".disqus.com/embed.js"
+    (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
 
 unless String::convertToSlug?
   String::convertToSlug = ->
