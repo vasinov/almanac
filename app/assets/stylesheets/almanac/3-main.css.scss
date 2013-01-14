@@ -1,4 +1,4 @@
-$content-width: 600px;
+$content-width: 700px;
 $font-family-general: "Georgia", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnBold', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
@@ -55,7 +55,7 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
   }
 
   .well.post {
-    img {
+    img.bordered {
       border: 1px solid grey;
     }
     p {
@@ -96,6 +96,9 @@ $font-family-title: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue B
         p {
           a.add-photo {
             font-size: 0.8em;
+          }
+          a.delete-image {
+            line-height: 27px;
           }
         }
       }

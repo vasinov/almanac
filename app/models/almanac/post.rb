@@ -2,7 +2,6 @@ class Almanac::Post < ActiveRecord::Base
   belongs_to :blog
   belongs_to :author, :class_name => Almanac.user_class
   has_many :images, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
 
   attr_accessible :title, :body, :published, :excerpt, :author_id, :blog_id, :tag_list, :written_at, :slug
 

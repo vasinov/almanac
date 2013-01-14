@@ -5,6 +5,11 @@ module Almanac
     load_and_authorize_resource class: Almanac::Image
     respond_to :html
 
+    before_filter :only => [:delete] do |controller|
+      @image = Image.find(params[:id])
+      @post = Post.find(params[:post_id])
+    end
+
     def create
       @blog = Almanac::Blog.first
       @image = Image.new(params[:image])
@@ -22,6 +27,18 @@ module Almanac
           format.html { redirect_to edit_post_path(@image.post), :notice => 'Image was successfully created.' }
         else
           format.html { redirect_to :back, :alert => 'Something went wrong, try again.' }
+        end
+      end
+    end
+
+    def destroy
+      image_id = @image.id
+      respond_to do |format|
+        if @image.destroy
+          format.html { redirect_to :root, :notice => 'Image was successfully deleted.' }
+          format.js { render :nothing => true }
+        else
+          format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
       end
     end

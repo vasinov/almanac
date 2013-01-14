@@ -6,7 +6,7 @@ Almanac is the most elegant mountable blog engine that can be easily hooked up i
 - kramdown (better Markdown) for all input fields.
 - Drafts that make sense.
 - Easy Google Analytics support.
-- Akismet support for spam filtering in comments.
+- Disqus support for comments.
 - Built-in social sharing with Facebook and Twitter.
 - RSS support.
 - Tags for posts.
@@ -50,7 +50,6 @@ Almanac relies on Devise and CanCan properly configured in your app. In short, t
 ```ruby
 can :manage, Almanac::Post
 can :manage, Almanac::Blog
-can :manage, Almanac::Comment
 can :manage, Almanac::Image
 ```
 
@@ -62,6 +61,8 @@ Almanac relies on the Dragonfly gem for file uploads. Configure Dragonfly in you
 ```ruby
 require 'dragonfly/rails/images'
 ```
+
+In order for some of the Dragonfly functionality to work, [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) is required.
 
 ### 6. Specify User Class Name
 Lastly, you'll have to specify the name of your user model. Create a `config/initializers/almanac.rb` file and add the following line there:
@@ -81,6 +82,11 @@ end
 ```
 
 And it will generate a nice looking block of Ruby code once your post is published.
+
+## Post Comments
+Almanac supports commenting via [Disqus](http://disqus.com/)—the best commenting solution on the web. If you want your blog to support commenting, register with Disqus, add a website and copy-paste "Site Shortname" to the appropriate field in Blog Settings.
+
+Prior to version 0.9 Almanac had it's own commenting solution. It's not supported anymore. However, you can back up your comments from the database, since there is no migration that removes the comments table in the system.
 
 ## Extending
 Almanac is a mountable Rails engine, which means that all of its controllers, views and models can be rewritten in your main application. E.g. if you want to change the main layout view, create a `app/views/layouts/almanac/application.html.haml` file in your project directory that will be used automatically by Rails instead of the default Almanac layout.

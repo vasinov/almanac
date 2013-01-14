@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.8"
+  s.add_dependency "rails", "~> 3.2.11"
   s.add_dependency "jquery-rails"
   s.add_dependency "haml"
   s.add_dependency "haml-rails"
@@ -31,7 +31,6 @@ Gem::Specification.new do |s|
   s.add_dependency "will_paginate", '~> 3.0.3'
   s.add_dependency "will_paginate-bootstrap"
   s.add_dependency "acts-as-taggable-on", '~> 2.3.1'
-  s.add_dependency "rakismet"
 
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "sqlite3"

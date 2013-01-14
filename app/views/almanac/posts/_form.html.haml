@@ -15,7 +15,9 @@
               = image_tag image.thumb.url
               %p.centered
                 %a{ :href => "#add", :class => "add-photo", "data-image" => image.image.url } Add To Post
-                -#%a{ :class => "close"} &times;
+                - if can? :delete, image
+                  = link_to post_image_path(@post, image), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete-image close" do
+                    &times;
 %h3.head Post Editor
 .well
   = form_for @post do |f|
