@@ -29,7 +29,7 @@ $(document).ready ->
 
   $("a.add-photo").click (e) ->
     e.preventDefault()
-    $("#post_body").val($("#post_body").val() + "\n\n![](" + $(this).data("image") + ")\n\n")
+    $("#post_body").val($("#post_body").val() + "![](" + $(this).data("image") + ")")
 
   $(".delete-image").bind ("ajax:success"), ->
     image = $(this).parent().parent()
