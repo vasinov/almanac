@@ -7,7 +7,6 @@ class Ability
     can [:read, :show], [Almanac::Post, Almanac::Blog]
     can :manage, Almanac::Post
     can :manage, Almanac::Blog
-    can :manage, Almanac::Comment
     can :manage, Almanac::Image
   end
 end

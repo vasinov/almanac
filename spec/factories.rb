@@ -18,32 +18,11 @@ FactoryGirl.define do
     author_id { generate(:author_id) }
     written_at { Date.today }
 
-    factory :post_with_comments do
-      ignore do
-        comments_count 15
-      end
-
-      after(:create) do |post, evaluator|
-        create_list(:comment, evaluator.comments_count, post: post)
-      end
-    end
-
     factory :post_draft do
       published false
     end
 
     association :blog, factory: :blog
-  end
-
-  factory :comment, :class => Almanac::Comment do
-    author_name { Faker::Name.name }
-    author_email { Faker::Internet.safe_email }
-    body { Faker::Lorem.paragraph(1) }
-    association :post, factory: :post
-
-    factory :spam_comment do
-      spam true
-    end
   end
 
   factory :blog, :class => Almanac::Blog do
@@ -58,16 +37,6 @@ FactoryGirl.define do
 
       after(:create) do |blog, evaluator|
         create_list(:post, evaluator.posts_count, blog: blog)
-      end
-    end
-
-    factory :blog_with_posts_with_comments do
-      ignore do
-        posts_count 15
-      end
-
-      after(:create) do |blog, evaluator|
-        create_list(:post_with_comments, evaluator.posts_count, blog: blog)
       end
     end
   end
