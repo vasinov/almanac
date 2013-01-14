@@ -47,10 +47,6 @@ module Almanac
         return
       end
 
-      if @post.published
-        @comments = @post.comments.where(:spam => false)
-      end
-
       respond_with(@post) do |format|
         format.html
       end

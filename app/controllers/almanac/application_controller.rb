@@ -15,10 +15,6 @@ module Almanac
 
     def set_blog
       @blog = Almanac::Blog.first
-      unless @blog.nil?
-        Rakismet.key = (@blog.rakismet_key) ? @blog.rakismet_key : ''
-        Rakismet.url = (@blog.rakismet_url) ? @blog.rakismet_url : ''
-      end
     end
   end
 end
