@@ -3,6 +3,7 @@ $(document).ready ->
   background_tile = $("body").data("background-tile")
   background_blur = $("body").data("background-blur")
   logo = $("body").data("logo-image")
+  disqus_shortname = $("body").data("disqus-shortname")
 
   $("a.logo div").css("background-image", "url(" + (if logo? then logo else "<%= asset_path('almanac/logo.jpg') %>") + ")")
 
@@ -50,6 +51,12 @@ $(document).ready ->
 
   $("pre").addClass("prettyprint")
   prettyPrint()
+
+  dsq = document.createElement("script")
+  dsq.type = "text/javascript"
+  dsq.async = true
+  dsq.src = "http://" + disqus_shortname + ".disqus.com/embed.js"
+  (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
 
 unless String::convertToSlug?
   String::convertToSlug = ->

@@ -17,8 +17,9 @@
   %hr.gradient-black
   .actions
     - if @post.published
-      = link_to "#{post_path(@post.slug)}#comments" do
-        %i.icon-comment.icon
+      - if @blog.disqus_shortname
+        = link_to "#{post_path(@post.slug)}#disqus_thread" do
+          %i.icon-comment.icon
       = link_to "http://twitter.com/share?url=#{post_url(@post.slug)}#{"&via="+@blog.twitter unless @blog.twitter.empty?}&text=#{@post.title}", :target => "_blank", :class => "popup" do
         %i.icon-retweet.icon
       = link_to "http://www.facebook.com/share.php?u=#{post_url(@post.slug)}", :target => "_blank", :class => "popup" do
@@ -30,30 +31,6 @@
     - if can? :delete, @post
       = link_to post_path(@post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete-post" do
         %i.icon-trash.icon
-  - if @post.published and action_name == "show"
+  - if @post.published and action_name == "show" and @blog.disqus_shortname
     %hr.gradient-black
-    #comments
-      - unless @comments.empty?
-        %h4 Comments
-        - @comments.each do |comment|
-          .well
-            %h5
-              = "#{comment.author_name} said #{time_ago_in_words comment.created_at} ago:"
-            = comment.body
-            .actions
-              - if can? :delete, comment
-                = link_to post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete-comment" do
-                  %i.icon-trash.icon
-        %hr.gradient-black
-      %h4 Leave a Comment
-      = form_for([@post, @post.comments.build]) do |f|
-        .field
-          = f.label :author_name, "Name"
-          = f.text_field :author_name, :placeholder => "This field is required."
-        .field
-          = f.label :author_email, "Email"
-          = f.text_field :author_email, :placeholder => "This field is required."
-        .field
-          = f.label :body, "Comment"
-          = f.text_area :body, :placeholder => "Type your comment here.", :rows => 3
-        = f.submit :class => "btn btn-small", :value => "Post Your Comment"
+    #disqus_thread

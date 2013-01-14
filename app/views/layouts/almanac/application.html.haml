@@ -8,7 +8,8 @@
     = javascript_include_tag "almanac/application"
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-  %body.almanac{ "data-logo-image" => (@blog) ? ((@blog.logo) ? @blog.logo.url : nil) : nil,
+  %body.almanac{ "data-disqus-shortname" => (@blog) ? ((@blog.disqus_shortname) ? @blog.disqus_shortname : nil) : nil,
+               "data-logo-image" => (@blog) ? ((@blog.logo) ? @blog.logo.url : nil) : nil,
                "data-background-image" => (@blog) ? ((@blog.background) ? @blog.background.url : nil) : nil,
                "data-background-tile" => (@blog) ? ((@blog.background_tile) ? "true" : "false") : "true",
                "data-background-blur" => (@blog) ? ((@blog.background_blur) ? @blog.background_blur : 0) : 0 }
