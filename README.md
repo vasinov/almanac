@@ -6,7 +6,7 @@ Almanac is the most elegant mountable blog engine that can be easily hooked up i
 - Markdown for everything.
 - Drafts that make sense.
 - Easy Google Analytics support.
-- Akismet support for spam filtering in comments.
+- Disqus support for comments.
 - Built-in social sharing with Facebook and Twitter.
 - RSS support.
 - Tags for posts.
@@ -50,7 +50,6 @@ Almanac relies on Devise and CanCan properly configured in your app. In short, t
 ```ruby
 can :manage, Almanac::Post
 can :manage, Almanac::Blog
-can :manage, Almanac::Comment
 can :manage, Almanac::Image
 ```
 
@@ -62,6 +61,8 @@ Almanac relies on the Dragonfly gem for file uploads. Configure Dragonfly in you
 ```ruby
 require 'dragonfly/rails/images'
 ```
+
+In order for some of the Dragonfly functionality to work, [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) is required.
 
 ### 6. Specify User Class Name
 Lastly, you'll have to specify the name of your user model. Create a `config/initializers/almanac.rb` file and add the following line there:
