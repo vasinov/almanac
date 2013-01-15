@@ -10,8 +10,8 @@ xml.rss :version => "2.0" do
         xml.title post.title
         xml.description @kramdown_parser.kramdown_to_html(post.body).html_safe
         xml.pubDate post.written_at.to_s(:rfc822)
-        xml.link post_url(post)
-        xml.guid post_url(post)
+        xml.link post_url(post.slug)
+        xml.guid post_url(post.slug)
       end
     end
   end
