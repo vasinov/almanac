@@ -79,6 +79,7 @@ Almanac.user_class = "User" # other possibilities: "Author", "Writer", etc.
 def foo
   puts "bar"
 end
+~~~
 ```
 
 And it will generate a nice looking block of Ruby code once your post is published.
