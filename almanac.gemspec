@@ -14,12 +14,13 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
+  s.add_dependency "therubyracer"
   s.add_dependency "rails", "~> 3.2.11"
   s.add_dependency "jquery-rails"
   s.add_dependency "haml"
   s.add_dependency "haml-rails"
   s.add_dependency "sass-rails"
-  s.add_dependency "bootstrap-rails-engine"
+  s.add_dependency "twitter-bootstrap-rails"
   s.add_dependency "devise"
   s.add_dependency "cancan"
   s.add_dependency "coffee-rails"
