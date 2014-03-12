@@ -1,14 +1,12 @@
 class Almanac::Blog < ActiveRecord::Base
+  extend Dragonfly::Model
+
   belongs_to :author, :class_name => Almanac.user_class
 
-  attr_accessible :title, :description, :author_id, :logo, :background, :retained_logo,
-                  :retained_background, :google_analytics, :twitter, :background_tile,
-                  :background_blur, :footer, :disqus_shortname
-
-  image_accessor :logo do
+  dragonfly_accessor :logo do
     after_assign{|a| a.process!(:thumb, '100x100#').encode(:png) }
   end
-  image_accessor :background do
+  dragonfly_accessor :background do
     after_assign{|a| a.process!(:thumb, '1200x>').encode(:png) }
   end
 

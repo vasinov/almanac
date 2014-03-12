@@ -12,7 +12,7 @@ module Almanac
 
     def create
       @blog = Almanac::Blog.first
-      @image = Image.new(params[:image])
+      @image = Image.new(image_params)
 
       if params[:post_id] == "0"
         @post = Post.create( { :published => false, :author_id => current_user.id, :blog_id =>  @blog.id } )
@@ -41,6 +41,12 @@ module Almanac
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
       end
+    end
+
+    protected
+
+    def image_params
+      params.require(:image).permit(:image, :thumb, :post_id)
     end
   end
 end

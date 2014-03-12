@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "therubyracer"
-  s.add_dependency "rails", "~> 3.2.11"
+  s.add_dependency "rails", "~> 4.0.3"
   s.add_dependency "jquery-rails"
   s.add_dependency "haml"
   s.add_dependency "haml-rails"
@@ -27,11 +27,11 @@ Gem::Specification.new do |s|
   s.add_dependency "uglifier"
   s.add_dependency "kramdown"
   s.add_dependency "rack-cache"
-  s.add_dependency "dragonfly"
+  s.add_dependency "dragonfly", "~> 1.0.3"
   s.add_dependency "mini_magick"
-  s.add_dependency "will_paginate", '~> 3.0.3'
-  s.add_dependency "will_paginate-bootstrap"
-  s.add_dependency "acts-as-taggable-on", '~> 2.3.1'
+  s.add_dependency "will_paginate", "~> 3.0.5"
+  s.add_dependency "will_paginate-bootstrap", "~> 1.0.0"
+  s.add_dependency "acts-as-taggable-on", "~> 3.0.1"
 
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "sqlite3"

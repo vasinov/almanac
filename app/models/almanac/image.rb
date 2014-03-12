@@ -1,10 +1,10 @@
 class Almanac::Image < ActiveRecord::Base
+  extend Dragonfly::Model
+
   belongs_to :post
 
-  attr_accessible :image, :thumb, :post_id
-
-  image_accessor :image do
+  dragonfly_accessor :image do
     copy_to(:thumb){|a| a.thumb('100x100#') }
   end
-  image_accessor :thumb
+  dragonfly_accessor :thumb
 end
