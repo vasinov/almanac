@@ -71,7 +71,7 @@ module Almanac
     end
 
     def create
-      @post = Post.new(params[:post])
+      @post = Post.new(post_params)
       @post.blog = Almanac::Blog.first
       @post.author_id = current_user.id
 
@@ -95,7 +95,7 @@ module Almanac
       @post.blog = Almanac::Blog.first
 
       respond_with(@post) do |format|
-        if @post.update_attributes(params[:post])
+        if @post.update_attributes(post_params)
           format.html { redirect_to :root, :notice => 'Post was successfully updated.' }
         else
           format.html { render :action => "edit" }
@@ -113,6 +113,13 @@ module Almanac
           format.html { redirect_to post_path(@post), :alert => 'Something went wrong, try again.' }
         end
       end
+    end
+
+    protected
+
+    def post_params
+      params.require(:post).permit(:title, :body, :published, :excerpt, :author_id, :blog_id,
+                                   :tag_list, :written_at, :slug)
     end
   end
 end

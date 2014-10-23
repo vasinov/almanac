@@ -56,10 +56,10 @@ can :manage, Almanac::Image
 These particular rules will allow the specified user to do anything with any Almanac record in the database.
 
 ### 5. Dragonfly Setup
-Almanac relies on the Dragonfly gem for file uploads. Configure Dragonfly in your app by adding the following line to `config/initializers/dragonfly.rb`:
+Almanac relies on the Dragonfly gem for file uploads. Configure Dragonfly in your app by running the generator:
 
 ```ruby
-require 'dragonfly/rails/images'
+rails generate dragonfly
 ```
 
 In order for some of the Dragonfly functionality to work, [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) is required.
